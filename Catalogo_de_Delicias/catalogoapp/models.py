@@ -1,11 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-class Usuario(models.Model):
-    username = models.TextField(max_length=50,unique=True)
-    password = models.TextField()
+class Perfil(models.Model):
     rol = models.TextField(choices=[('Cliente','Cliente'),('Ayudante','Ayudante'),('Administrador','Administrador')])
     #Opciones de ROl, Cliente,Ayudante,Administrador
+    #FK
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 class Restaurante(models.Model):
     nombre = models.TextField(max_length=50)
@@ -13,7 +14,7 @@ class Restaurante(models.Model):
     duenio = models.TextField(max_length=50)
     telefono = models.TextField(max_length=15)
     #FK
-    ayudante = models.ForeignKey(Usuario,default="",related_name="Usuario")
+    ayudante = models.ForeignKey(Perfil,related_name="Perfil")
 
 class Platillo(models.Model):
     nombre = models.TextField(max_length=50)
