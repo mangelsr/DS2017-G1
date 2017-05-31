@@ -24,8 +24,7 @@ def login(request):
                 return redirect('../homeAdmin')
         else:
             print("ERROR DE AUTENTICACION...")
-            response = HttpResponse("ERROR DE AUTENTICACION...",status=500)
-            return response
+            return render(request,'login.html',{'error':True})
     else:
         return render(request,'login.html',{})
 

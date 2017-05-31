@@ -1,1 +1,14 @@
-See ya...
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="wrapper">
+
+  <form class="form-signin">
+    <h2 class="form-signin-heading" style="text-align: center;">Sesion cerrada correctamente</h2>
+    <p>Para iniciar sesion nuevamente pulse sobre el boton</p>
+    <a href="{% url 'login' %}" class="btn btn-lg btn-primary btn-block">Ingresar</a>
+  </form>
+</div>
+
+{% endblock content %}
