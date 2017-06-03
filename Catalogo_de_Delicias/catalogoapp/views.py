@@ -16,12 +16,7 @@ def login(request):
         if user is not None:
             auth_login(request, user)
             rol = Perfil.objects.get(user=user).rol
-            if (rol == 'Cliente'):
-                return redirect('../homeCliente')
-            elif (rol == 'Ayudante'):
-                return redirect('../homeAyudante')
-            else:
-                return redirect('../homeAdmin')
+            return redirect('../home')
         else:
             print("ERROR DE AUTENTICACION...")
             return render(request,'login.html',{'error':True})
@@ -31,3 +26,12 @@ def login(request):
 def logout(request):
     auth_logout(request)
     return render(request,'logout.html',{})
+
+def home(request):
+    if request.user.is_authenticated:
+        user = request.user
+        rol = Perfil.objects.get(user=user).rol
+        return render(request,'home.html',{"rol":rol})
+    else:
+        print("DEBE ESTAR LOGEADO...")
+        return redirect('../')

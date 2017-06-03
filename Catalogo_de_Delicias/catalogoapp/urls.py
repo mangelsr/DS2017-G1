@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^$', login, name="login"),
     url(r'^login/$', login),
     url(r'^logout/$', logout, name="logout"),
+    url(r'^home/$', home, name='home'),
 ]

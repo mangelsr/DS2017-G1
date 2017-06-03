@@ -2,6 +2,25 @@
 
 {% block content %}
 
-VISTA PRINCIPAL
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      {% if rol == "Cliente" %}
+        <li><a href="#">Listar Platillos</a></li>
+        <li><a href="#">Buscar Platillos</a></li>
+      {% elif rol == "Ayudante" %}
+        <li><a href="#">Agregar Platillo</a></li>
+        <li><a href="#">Mostrar Platillos</a></li>
+        <li><a href="#">Mostrar Platillos por categoria</a></li>
+      {% else %}
+        <li><a href="#">Agregar Restaurante</a></li>
+        <li><a href="#">Listar Restaurantes</a></li>
+        <li><a href="#">Agregar Usuario</a></li>
+      {% endif %}
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <a href="{% url 'logout' %}" class="btn btn-lg btn-danger btn-block" role="button">Cerrar Sesion</a>
+    </ul>
+  </div>
 
 {% endblock content %}
