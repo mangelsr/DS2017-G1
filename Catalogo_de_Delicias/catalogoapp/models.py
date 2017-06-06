@@ -9,7 +9,7 @@ class Restaurante(models.Model):
     duenio = models.TextField(max_length=50)
     telefono = models.TextField(max_length=15)
     def __unicode__(self):
-        return unicode(self.nombre)
+        return self.nombre
 
 class Perfil(models.Model):
     rol = models.TextField(choices=[('Cliente','Cliente'),('Ayudante','Ayudante'),('Administrador','Administrador')])
@@ -18,7 +18,7 @@ class Perfil(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     restaurante = models.ForeignKey(Restaurante, null=True, blank=True)
     def __unicode__(self):
-        return unicode(self.user.username)
+        return self.user.username
 
 class Platillo(models.Model):
     nombre = models.TextField(max_length=50)
