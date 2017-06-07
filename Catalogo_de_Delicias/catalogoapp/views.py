@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 
-from .models import Perfil
+from .models import Profile
 
 # Create your views here.
 
@@ -15,7 +15,7 @@ def login(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             auth_login(request, user)
-            rol = Perfil.objects.get(user=user).rol
+            rol = Profile.objects.get(user=user).rol
             return redirect('../home')
         else:
             print("ERROR DE AUTENTICACION...")
@@ -30,7 +30,7 @@ def logout(request):
 def home(request):
     if request.user.is_authenticated:
         user = request.user
-        rol = Perfil.objects.get(user=user).rol
+        rol = Profile.objects.get(user=user).rol
         return render(request,'home.html',{"rol":rol})
     else:
         print("DEBE ESTAR LOGEADO...")
