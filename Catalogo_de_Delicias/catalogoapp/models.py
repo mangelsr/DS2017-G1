@@ -16,7 +16,7 @@ class Profile(models.Model):
     #Opciones de ROL, Cliente,Ayudante,Administrador
     #FK
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    restaurant = models.ForeignKey(Restaurante, null=True, blank=True)
+    restaurant = models.ForeignKey(Restaurant, null=True, blank=True)
     def __unicode__(self):
         return self.user.username
 
@@ -30,4 +30,4 @@ class Dish(models.Model):
     temperature = models.TextField(choices=[('Frio','Frio'),('Caliente','Caliente')])
     #Caliente o frio
     # FK
-    restaurant = models.ForeignKey(Restaurante)
+    restaurant = models.ForeignKey(Restaurant)
