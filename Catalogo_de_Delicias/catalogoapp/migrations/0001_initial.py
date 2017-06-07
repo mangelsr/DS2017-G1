@@ -22,8 +22,8 @@ class Migration(migrations.Migration):
                 ('ingredientes', models.TextField()),
                 ('imagen', models.TextField()),
                 ('descripcion', models.TextField()),
-                ('tipo', models.TextField(choices=[(b'Aperitivo', b'Aperitivo'), (b'Plato Fuerte', b'Plato Fuerte'), (b'Postre', b'Postre')])),
-                ('temperatura', models.TextField(choices=[(b'Frio', b'Frio'), (b'Caliente', b'Caliente')])),
+                ('tipo', models.TextField(choices=[('Aperitivo', 'Aperitivo'), ('Plato Fuerte', 'Plato Fuerte'), ('Postre', 'Postre')])),
+                ('temperatura', models.TextField(choices=[('Frio', 'Frio'), ('Caliente', 'Caliente')])),
             ],
         ),
         migrations.CreateModel(
@@ -42,17 +42,17 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('username', models.TextField(max_length=50, unique=True)),
                 ('password', models.TextField()),
-                ('rol', models.TextField(choices=[(b'Cliente', b'Cliente'), (b'Ayudante', b'Ayudante'), (b'Administrador', b'Administrador')])),
+                ('rol', models.TextField(choices=[('Cliente', 'Cliente'), ('Ayudante', 'Ayudante'), ('Administrador', 'Administrador')])),
             ],
         ),
         migrations.AddField(
             model_name='restaurante',
             name='ayudante',
-            field=models.ForeignKey(default=b'', on_delete=django.db.models.deletion.CASCADE, related_name='Usuario', to='catalogoapp.Usuario'),
+            field=models.ForeignKey(default='', on_delete=django.db.models.deletion.CASCADE, related_name='Usuario', to='catalogoapp.Usuario'),
         ),
         migrations.AddField(
             model_name='platillo',
             name='restaurante',
-            field=models.ForeignKey(default=b'', on_delete=django.db.models.deletion.CASCADE, related_name='Restaurante', to='catalogoapp.Restaurante'),
+            field=models.ForeignKey(default='', on_delete=django.db.models.deletion.CASCADE, related_name='Restaurante', to='catalogoapp.Restaurante'),
         ),
     ]

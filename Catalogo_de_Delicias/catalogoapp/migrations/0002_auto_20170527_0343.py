@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             name='Perfil',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('rol', models.TextField(choices=[(b'Cliente', b'Cliente'), (b'Ayudante', b'Ayudante'), (b'Administrador', b'Administrador')])),
+                ('rol', models.TextField(choices=[('Cliente', 'Cliente'), ('Ayudante', 'Ayudante'), ('Administrador', 'Administrador')])),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
