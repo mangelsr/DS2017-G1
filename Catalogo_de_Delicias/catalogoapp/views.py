@@ -74,3 +74,24 @@ def searchDishes(request):
 def viewDish(request,id_dish):
     dish = Dish.objects.get(id = id_dish)
     return render(request,'detailDish.html',{"dish":dish})
+
+def new_dish(request):
+    if request.method == "POST":
+        form = DishForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('homeAssistant.html')
+    else:
+        form = DishForm()
+    return render(request,'dish_entry.html',{"dish":form})
+
+def edit_dish(request,id_dish):
+    dish = Dish.objects.get(id = id_dish)
+    if request.method == "GET":
+        form = DishForm(instance=dish)
+    else:
+        form = DishForm(request.POST,instance=dish)
+        if form.is_valid():
+            form.save()
+        return redirect('homeAssistant.html')
+    return render(request,'dish_entry.html',{"dish":form})
