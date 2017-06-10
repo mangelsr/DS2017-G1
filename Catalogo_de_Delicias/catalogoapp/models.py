@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+from .choices import *
 
-# Create your models here.
 
 class Restaurant(models.Model):
     name = models.TextField(max_length=50)
-    adress = models.TextField()
+    address = models.TextField()
     owner = models.TextField(max_length=50)
     phone_number = models.TextField(max_length=15)
     def __unicode__(self):
@@ -17,9 +17,7 @@ class Restaurant(models.Model):
         verbose_name_plural = "Restaurants"
 
 class Profile(models.Model):
-    role = models.CharField(max_length=20,choices=[('Cliente','Cliente'),('Ayudante','Ayudante'),('Administrador','Administrador')],default='C',null=False,blank=False)
-    #Opciones de ROL, Cliente,Ayudante,Administrador
-    #FK
+    role = models.CharField(max_length=20,choices=ROL,default='C',null=False,blank=False)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     restaurant = models.ForeignKey(Restaurant, null=True, blank=True)
     def __unicode__(self):
@@ -35,11 +33,8 @@ class Dish(models.Model):
     ingredients = models.TextField()
     image = models.TextField()
     description = models.TextField()
-    dish_choice = models.CharField(max_length=20,choices=[('Aperitivo','Aperitivo'),('Plato Fuerte','Plato Fuerte'),('Postre','Postre')],default='A',null=False,blank=False)
-    #Aperitivo, plato fuerte y la otra cosa
-    temperature = models.CharField(max_length=20,choices=[('Frio','Frio'),('Caliente','Caliente')],default='C',null=False,blank=False)
-    #Caliente o frio
-    # FK
+    dish_choice = models.CharField(max_length=20,choices=DISH_CHOICE,default='A',null=False,blank=False)
+    temperature = models.CharField(max_length=20,choices=TEMPERATURE,default='C',null=False,blank=False)
     restaurant = models.ForeignKey(Restaurant)
     def __unicode__(self):
         return self.name
