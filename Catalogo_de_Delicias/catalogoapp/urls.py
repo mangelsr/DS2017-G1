@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^homeClient/viewDish/(?P<id_dish>\d+)/$',viewDish, name='viewDish'),
 
     url(r'^homeAssistant/$', homeAssistant, name='homeAssistant'),
+    url(r'^homeAssistant/newDish$', new_dish, name='homeDish'),
 
     url(r'^homeAdmin/$', homeAdmin, name='homeAdmin'),
 ]
