@@ -31,7 +31,7 @@ class Profile(models.Model):
 class Dish(models.Model):
     name = models.TextField(max_length=50)
     ingredients = models.TextField()
-    image = models.TextField()
+    image = models.ImageField(upload_to='photos/')
     description = models.TextField()
     dish_choice = models.CharField(max_length=20,choices=DISH_CHOICE,default='A',null=False,blank=False)
     temperature = models.CharField(max_length=20,choices=TEMPERATURE,default='C',null=False,blank=False)
