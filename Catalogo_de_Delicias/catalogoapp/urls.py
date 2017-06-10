@@ -4,10 +4,11 @@ from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 from .views import *
 
-from . import views
 urlpatterns = [
     url(r'^$', login, name="login"),
     url(r'^login/$', login),
     url(r'^logout/$', logout, name="logout"),
-    url(r'^home/$', home, name='home'),
+    url(r'^homeClient/$', homeClient, name='homeCliente'),
+    url(r'^homeClient/listDishes$', listDishes, name='listDishes'),
+    url(r'^homeClient/searchDish$', searchDish, name='searchDish'),
 ]

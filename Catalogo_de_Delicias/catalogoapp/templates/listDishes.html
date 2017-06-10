@@ -1,0 +1,29 @@
+{% extends 'homeClient.html' %}
+
+{% block content2 %}
+
+<main class="container" role='main'>
+
+  <form method="post">
+    {% csrf_token %}
+    Seleccione un tipo de platillo:
+    <select name="selection">
+      <option value="Aperitivo">Aperitivo</option>
+      <option value="Plato Fuerte">Plato Fuerte</option>
+      <option value="Postre">Postre</option>
+    </select>
+    <button class="btn btn-primary" type="submit" style="margin-top: 0;">Listar</button>
+  </form>
+
+  <div class="panel panel-default">
+    {% for dish in dishes %}
+    <div class="panel-heading">
+      <h2 class='panel-title'>
+        Nombre: {{ dish.name }} - Restaurante: {{ dish.restaurant }}
+      </h2>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+
+{% endblock content2 %}

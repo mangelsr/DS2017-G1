@@ -31,3 +31,5 @@ class Dish(models.Model):
     #Caliente o frio
     # FK
     restaurant = models.ForeignKey(Restaurant)
+    def __unicode__(self):
+        return self.name

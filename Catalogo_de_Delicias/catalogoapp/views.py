@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 
-from .models import Profile
+from .models import *
 
 # Create your views here.
 
@@ -15,8 +15,13 @@ def login(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             auth_login(request, user)
-            rol = Profile.objects.get(user=user).rol
-            return redirect('../home')
+            rol = Profile.objects.get(user=user).role
+            if (rol=="Cliente"):
+                return redirect('../homeClient')
+            elif (rol=="Ayudante"):
+                return redirect('../homeAsistant')
+            else:
+                return redirect('../homeAdmin')
         else:
             print("ERROR DE AUTENTICACION...")
             return render(request,'login.html',{'error':True})
@@ -27,11 +32,25 @@ def logout(request):
     auth_logout(request)
     return render(request,'logout.html',{})
 
-def home(request):
+def homeClient(request):
     if request.user.is_authenticated:
-        user = request.user
-        rol = Profile.objects.get(user=user).rol
-        return render(request,'home.html',{"rol":rol})
+        return render(request,'homeClient.html')
     else:
         print("DEBE ESTAR LOGEADO...")
         return redirect('../')
+
+def listDishes(request):
+    if (request.method == "POST"):
+        selection = request.POST['selection']
+        dishes = Dish.objects.filter(dish_choice=selection)
+        return render(request,'listDishes.html',{"dishes":dishes})
+    else:
+        return render(request,'listDishes.html',{})
+
+def searchDish(request):
+    if (request.method == "POST"):
+        dishName = request.POST['dishName']
+        dishes = Dish.objects.filter(name__contains=dishName)
+        return render(request,'searchDish.html',{"dishes":dishes})
+    else:
+        return render(request,'searchDish.html',{})
