@@ -102,6 +102,10 @@ def new_dish(request):
     if request.method == "POST":
         form = DishForm(request.POST)
         if form.is_valid():
+            newDish = form.save(commit=False)
+            user = request.user
+            newDish.restaurant = Profile.objects.get(user=user).restaurant
+            newDish.save()
             form.save()
         return redirect('homeAssistant')
     else:
