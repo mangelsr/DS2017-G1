@@ -12,6 +12,9 @@ class Restaurant(models.Model):
         return self.name
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = "Restaurant"
+        verbose_name_plural = "Restaurants"
 
 class Profile(models.Model):
     role = models.TextField(choices=[('Cliente','Cliente'),('Ayudante','Ayudante'),('Administrador','Administrador')])
@@ -23,6 +26,9 @@ class Profile(models.Model):
         return self.user.username
     def __str__(self):
         return self.user.username
+    class Meta:
+        verbose_name = "Profile"
+        verbose_name_plural = "Profiles"
 
 class Dish(models.Model):
     name = models.TextField(max_length=50)
@@ -39,3 +45,6 @@ class Dish(models.Model):
         return self.name
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = "Dish"
+        verbose_name_plural = "Dishes"
