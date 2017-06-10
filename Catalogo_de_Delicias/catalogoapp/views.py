@@ -66,7 +66,7 @@ def listDishes(request):
 def searchDishes(request):
     if (request.method == "POST"):
         dishName = request.POST['dishName']
-        dishes = Dish.objects.filter(name__contains=dishName)
+        dishes = Dish.objects.filter(name__contains=dishName, description__contains=dishName)
         ndishes = len(dishes)
         return render(request,'searchDishes.html',{"ndishes":ndishes,"dishes":dishes})
     else:
@@ -116,5 +116,15 @@ def edit_dish(request,id_dish):
         form = DishForm(request.POST,instance=dish)
         if form.is_valid():
             form.save()
-        return redirect('homeAssistant.html')
+        return redirect('homeAssistant')
     return render(request,'dish_entry.html',{"dish":form})
+
+def newRestaurant(request):
+    if request.method == 'POST':
+        form = RestaurantForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('homeAdmin')
+    else:
+        form = RestaurantForm()
+        return render(request, 'newRestaurant.html',{'form': form})
