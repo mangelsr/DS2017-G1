@@ -24,7 +24,9 @@
     {% for dish in dishes %}
     <div class="panel-heading">
       <h2 class='panel-title'>
+        <a href="{% url 'viewDish' dish.id %}">
         Nombre: {{ dish.name }} - Restaurante: {{ dish.restaurant }}
+        </a>
       </h2>
     </div>
     {% endfor %}
