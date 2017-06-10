@@ -23,6 +23,9 @@ urlpatterns = [
     url(r'^homeAssistant/viewDish/(?P<id_dish>\d+)/$',assistantviewDish, name='assistantviewDish'),
 
     url(r'^homeAdmin/$', homeAdmin, name='homeAdmin'),
+    url(r'^homeAdmin/newRestaurant$', newRestaurant, name='newRestaurant'),
+    #url(r'^homeAdmin/newUser$', newUser, name='newUser'),
+    #url(r'^homeAdmin/listRestaurant$', listRestaurant, name='listRestaurant'),
 ]
 
 if settings.DEBUG:
