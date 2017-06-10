@@ -3,8 +3,8 @@ from django.contrib.auth import authenticate
 from django.http import HttpResponse
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
+
 from .models import *
-from .forms import *
 
 # Create your views here.
 
