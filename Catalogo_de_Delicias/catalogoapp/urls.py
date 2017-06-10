@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^homeAssistant/$', homeAssistant, name='homeAssistant'),
     url(r'^homeAssistant/listDishes$', listDishesAssitant, name='listDishesAssitant'),
     url(r'^homeAssistant/listCategoryDishes$', listCategoryDishesAssitant, name='listCategoryDishesAssitant'),
-    url(r'^homeAssistant/newDish$', new_dish, name='homeDish'),
+    url(r'^homeAssistant/newDish$', new_dish, name='newDish'),
 
     url(r'^homeAdmin/$', homeAdmin, name='homeAdmin'),
 ]
