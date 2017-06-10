@@ -8,8 +8,13 @@ urlpatterns = [
     url(r'^$', login, name="login"),
     url(r'^login/$', login),
     url(r'^logout/$', logout, name="logout"),
+
     url(r'^homeClient/$', homeClient, name='homeCliente'),
     url(r'^homeClient/listDishes$', listDishes, name='listDishes'),
     url(r'^homeClient/searchDishes$', searchDishes, name='searchDishes'),
     url(r'^homeClient/viewDish/(?P<id_dish>\d+)/$',viewDish, name='viewDish'),
+
+    url(r'^homeAssistant/$', homeAssistant, name='homeAssistant'),
+
+    url(r'^homeAdmin/$', homeAdmin, name='homeAdmin'),
 ]
