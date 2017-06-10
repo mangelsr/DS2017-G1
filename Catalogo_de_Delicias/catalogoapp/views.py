@@ -99,11 +99,11 @@ def assistantviewDish(request,id_dish):
     return render(request,'detailDishAssistant.html',{"dish":dish})
 
 def new_dish(request):
-    if request.method == "POST":
+    if request.method == 'POST':
+        user = request.user
         form = DishForm(request.POST)
         if form.is_valid():
             newDish = form.save(commit=False)
-            user = request.user
             newDish.restaurant = Profile.objects.get(user=user).restaurant
             newDish.save()
             form.save()
