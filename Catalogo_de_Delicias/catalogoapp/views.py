@@ -19,7 +19,7 @@ def login(request):
             if (rol=="Cliente"):
                 return redirect('../homeClient')
             elif (rol=="Ayudante"):
-                return redirect('../homeAsistant')
+                return redirect('../homeAssistant')
             else:
                 return redirect('../homeAdmin')
         else:
@@ -35,6 +35,20 @@ def logout(request):
 def homeClient(request):
     if request.user.is_authenticated:
         return render(request,'homeClient.html')
+    else:
+        print("DEBE ESTAR LOGEADO...")
+        return redirect('../')
+
+def homeAssistant(request):
+    if request.user.is_authenticated:
+        return render(request,'homeAssistant.html')
+    else:
+        print("DEBE ESTAR LOGEADO...")
+        return redirect('../')
+
+def homeAdmin(request):
+    if request.user.is_authenticated:
+        return render(request,'homeAdmin.html')
     else:
         print("DEBE ESTAR LOGEADO...")
         return redirect('../')
