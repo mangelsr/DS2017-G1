@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^logout/$', logout, name="logout"),
     url(r'^homeClient/$', homeClient, name='homeCliente'),
     url(r'^homeClient/listDishes$', listDishes, name='listDishes'),
-    url(r'^homeClient/searchDish$', searchDish, name='searchDish'),
+    url(r'^homeClient/searchDishes$', searchDishes, name='searchDishes'),
+    url(r'^homeClient/viewDish/(?P<id_dish>\d+)/$',viewDish, name='viewDish'),
 ]
