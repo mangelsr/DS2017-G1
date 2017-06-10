@@ -53,30 +53,30 @@ class RestaurantForm(forms.ModelForm):
             'phone_number' : forms.TextInput(attrs={'class':'form-control','id':'phone_number','placeholder':'Numero telefonico del restaurante aqui'})
         }
 
-    class DishForm(forms.ModelForm):
-        class Meta:
-            model = Dish
-            fields = [
-                'name',
-                'ingredients',
-                'image',
-                'description',
-                'dish_choice',
-                'temperature'
-            ]
-            labels = {
-                'name' : 'Nombre del plato',
-                'ingredients' : 'Ingredientes del plato',
-                'image' : 'Imagen del plato',
-                'description' : 'Descripcion del plato',
-                'dish_choice' : 'Eleccion del tipo de plato',
-                'temperature' : 'Eleccion de la temperatura del plato'
-            }
-            widgets = {
-                'name' : forms.TextInput(attrs={'class':'form-control','id':'name','placeholder':'Nombre del plato aqui'}),
-                'ingredients' : forms.TextInput(attrs={'class':'form-control','id':'ingredients','placeholder':'Ingredientes del plato aqui'}),
-                'image' : forms.ImageField(),
-                'description' : forms.TextInput(attrs={'class':'form-control','id':'description','placeholder':'Descripcion del plato aqui'}),
-                'dish_choice' : forms.ChoiceField(choices=DISH_CHOICE,required=True),
-                'temperature' : forms.ChoiceField(choices=TEMPERATURE,required=True)
-            }
+class DishForm(forms.ModelForm):
+    class Meta:
+        model = Dish
+        fields = [
+            'name',
+            'ingredients',
+            #'image',
+            'description',
+            'dish_choice',
+            'temperature'
+        ]
+        labels = {
+            'name' : 'Nombre del plato',
+            'ingredients' : 'Ingredientes del plato',
+            #'image' : 'Imagen del plato',
+            'description' : 'Descripcion del plato',
+            'dish_choice' : 'Eleccion del tipo de plato',
+            'temperature' : 'Eleccion de la temperatura del plato'
+        }
+        widgets = {
+            'name' : forms.TextInput(attrs={'class':'form-control','id':'name','placeholder':'Nombre del plato aqui'}),
+            'ingredients' : forms.TextInput(attrs={'class':'form-control','id':'ingredients','placeholder':'Ingredientes del plato aqui'}),
+            #'image' : forms.ImageField(),
+            'description' : forms.TextInput(attrs={'class':'form-control','id':'description','placeholder':'Descripcion del plato aqui'}),
+            'dish_choice' : forms.Select(),
+            'temperature' : forms.Select()
+        }
