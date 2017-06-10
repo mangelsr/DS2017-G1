@@ -4,7 +4,7 @@
 
 <main class="container" role='main'>
 
-  <h1>Platillos del restaurante: {{restaurant}}</h1>
+  <h1>Platillos de {{restaurant}}</h1>
   {% if ndishes == 0 %}
     <h2 class='panel-title'>
       No hay platos para mostrar
@@ -16,7 +16,7 @@
       <a href="{% url 'assistantviewDish' dish.id %}" class='text-right' style='float:right'>Mostrar</a>
       <a class="text-right" style="float:right">Actualizar</a>
       <h2 class='panel-title'>
-        Nombre: {{ dish.name }}
+         {{ dish.dish_choice }}: {{ dish.name }}
       </h2>
     </div>
     {% endfor %}
