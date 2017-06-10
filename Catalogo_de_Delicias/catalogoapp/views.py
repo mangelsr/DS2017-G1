@@ -5,6 +5,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from .forms import *
 from .models import *
+from .forms import *
 
 # Create your views here.
 
@@ -74,6 +75,12 @@ def searchDishes(request):
 def viewDish(request,id_dish):
     dish = Dish.objects.get(id = id_dish)
     return render(request,'detailDish.html',{"dish":dish})
+
+def listDishesAssitant(request):
+    return render(request, 'listDishesAssitant.html',{})
+
+def listCategoryDishesAssitant(request):
+    return render(request, 'listCategoryDishesAssitant.html', {})
 
 def new_dish(request):
     if request.method == "POST":
