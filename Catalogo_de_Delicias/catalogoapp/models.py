@@ -10,6 +10,8 @@ class Restaurant(models.Model):
     phone_number = models.TextField(max_length=15)
     def __unicode__(self):
         return self.name
+    def __str__(self):
+        return self.name
 
 class Profile(models.Model):
     role = models.TextField(choices=[('Cliente','Cliente'),('Ayudante','Ayudante'),('Administrador','Administrador')])
@@ -18,6 +20,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     restaurant = models.ForeignKey(Restaurant, null=True, blank=True)
     def __unicode__(self):
+        return self.user.username
+    def __str__(self):
         return self.user.username
 
 class Dish(models.Model):
@@ -32,4 +36,6 @@ class Dish(models.Model):
     # FK
     restaurant = models.ForeignKey(Restaurant)
     def __unicode__(self):
+        return self.name
+    def __str__(self):
         return self.name
