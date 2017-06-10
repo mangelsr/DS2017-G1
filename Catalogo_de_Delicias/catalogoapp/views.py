@@ -77,17 +77,33 @@ def viewDish(request,id_dish):
     return render(request,'detailDish.html',{"dish":dish})
 
 def listDishesAssitant(request):
-    return render(request, 'listDishesAssitant.html',{})
+    user = request.user
+    restaurant = Profile.objects.get(user=user).restaurant
+    dishes = Dish.objects.filter(restaurant=restaurant)
+    ndishes = len(dishes)
+    return render(request,'listDishesAssitant.html',{"restaurant":restaurant,"ndishes":ndishes,"dishes":dishes})
 
-def listCategoryDishesAssitant(request):
-    return render(request, 'listCategoryDishesAssitant.html', {})
+def listCategoryDishes(request):
+    if (request.method == "POST"):
+        selection = request.POST['selection']
+        user = request.user
+        restaurant = Profile.objects.get(user=user).restaurant
+        dishes = Dish.objects.filter(restaurant=restaurant, dish_choice=selection)
+        ndishes = len(dishes)
+        return render(request, 'listCategoryDishes.html', {"restaurant":restaurant,"ndishes":ndishes,"dishes":dishes})
+    else:
+        return render(request, 'listCategoryDishes.html', {})
+
+def assistantviewDish(request,id_dish):
+    dish = Dish.objects.get(id = id_dish)
+    return render(request,'detailDishAssistant.html',{"dish":dish})
 
 def new_dish(request):
     if request.method == "POST":
         form = DishForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('homeAssistant.html')
+        return redirect('homeAssistant')
     else:
         form = DishForm()
     return render(request,'dish_entry.html',{"dish":form})
