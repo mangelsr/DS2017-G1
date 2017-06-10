@@ -17,7 +17,7 @@ class Restaurant(models.Model):
         verbose_name_plural = "Restaurants"
 
 class Profile(models.Model):
-    role = models.TextField(choices=[('Cliente','Cliente'),('Ayudante','Ayudante'),('Administrador','Administrador')])
+    role = models.CharField(max_length=20,choices=[('Cliente','Cliente'),('Ayudante','Ayudante'),('Administrador','Administrador')],default='C',null=False,blank=False)
     #Opciones de ROL, Cliente,Ayudante,Administrador
     #FK
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -35,9 +35,9 @@ class Dish(models.Model):
     ingredients = models.TextField()
     image = models.TextField()
     description = models.TextField()
-    dish_choice = models.TextField(choices=[('Aperitivo','Aperitivo'),('Plato Fuerte','Plato Fuerte'),('Postre','Postre')])
+    dish_choice = models.CharField(max_length=20,choices=[('Aperitivo','Aperitivo'),('Plato Fuerte','Plato Fuerte'),('Postre','Postre')],default='A',null=False,blank=False)
     #Aperitivo, plato fuerte y la otra cosa
-    temperature = models.TextField(choices=[('Frio','Frio'),('Caliente','Caliente')])
+    temperature = models.CharField(max_length=20,choices=[('Frio','Frio'),('Caliente','Caliente')],default='C',null=False,blank=False)
     #Caliente o frio
     # FK
     restaurant = models.ForeignKey(Restaurant)
