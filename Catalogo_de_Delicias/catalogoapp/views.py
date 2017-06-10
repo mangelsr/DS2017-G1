@@ -86,8 +86,11 @@ def new_dish(request):
     if request.method == "POST":
         form = DishForm(request.POST)
         if form.is_valid():
-            form.save()
-        return redirect('homeAssistant.html')
+            newDish = form.save(commit=False)
+            user = request.user
+            newDish.restaurant = Profile.objects.get(user=user).restaurant
+            newDish.save()
+        return redirect('homeAssistant')
     else:
         form = DishForm()
     return render(request,'dish_entry.html',{"dish":form})
