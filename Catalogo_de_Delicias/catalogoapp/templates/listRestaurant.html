@@ -1,0 +1,37 @@
+{% extends 'homeAdmin.html' %}
+
+{% block content2 %}
+
+<main class="container" role='main'>
+
+  <div class="panel panel-default">
+    {% for restaurant in restaurantes %}
+    <div class="panel-heading">
+      <h2 class='panel-title'>{{ restaurant.name }}</h2>
+    </div>
+    <div class="panel-body">
+      <h4>Direccion:</h4>{{ restaurant.address }}
+      <h4>Propietario:</h4>{{ restaurant.owner }}
+      <h4>Numero de telefono:</h4>{{ restaurant.phone_number }}
+
+      <h4>Asistentes</h4>
+      {% for asistente in asistentes %}
+        {% if asistente.restaurant == restaurant %}
+          <li>{{ asistente }}</li>
+        {% endif %}
+      {% endfor %}
+
+      <h4>Platillos</h4>
+      {% for platillo in platillos %}
+        {% if platillo.restaurant == restaurant %}
+          <li>{{ platillo }}</li>
+        {% endif %}
+      {% endfor %}
+      </div>
+    {% endfor %}
+    
+  </div>
+
+</main>
+
+{% endblock content2 %}

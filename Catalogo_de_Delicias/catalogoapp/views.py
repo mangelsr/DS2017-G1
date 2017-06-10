@@ -131,4 +131,11 @@ def newRestaurant(request):
         return redirect('homeAdmin')
     else:
         form = RestaurantForm()
-        return render(request, 'newRestaurant.html',{'form': form})
+    return render(request, 'newRestaurant.html',{'form': form})
+
+def listRestaurant(request):
+    restaurantes = Restaurant.objects.all()
+    asistentes = Profile.objects.filter(role="Ayudante")
+    platillos = Dish.objects.all()
+    return render(request, 'listRestaurant.html',{'restaurantes':restaurantes,
+    'asistentes':asistentes,'platillos':platillos})
