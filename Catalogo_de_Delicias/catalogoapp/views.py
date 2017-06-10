@@ -56,10 +56,14 @@ def homeAdmin(request):
 
 def listDishes(request):
     if (request.method == "POST"):
+        naperitivos = len(Dish.objects.filter(dish_choice='Aperitivo'))
+        nfuertes = len(Dish.objects.filter(dish_choice='Plato Fuerte'))
+        npostres = len(Dish.objects.filter(dish_choice='Postre'))
         selection = request.POST['selection']
         dishes = Dish.objects.filter(dish_choice=selection)
         ndishes = len(dishes)
-        return render(request,'listDishes.html',{"ndishes":ndishes,"dishes":dishes})
+        return render(request,'listDishes.html',{"ndishes":ndishes,"dishes":dishes,
+        "naperitivos":naperitivos,"nfuertes":nfuertes,"npostres":npostres})
     else:
         return render(request,'listDishes.html',{})
 
@@ -99,14 +103,13 @@ def assistantviewDish(request,id_dish):
     return render(request,'detailDishAssistant.html',{"dish":dish})
 
 def new_dish(request):
-    if request.method == "POST":
+    if request.method == 'POST':
+        user = request.user
         form = DishForm(request.POST)
         if form.is_valid():
             newDish = form.save(commit=False)
-            user = request.user
             newDish.restaurant = Profile.objects.get(user=user).restaurant
             newDish.save()
-            form.save()
         return redirect('homeAssistant')
     else:
         form = DishForm()
@@ -139,3 +142,18 @@ def listRestaurant(request):
     platillos = Dish.objects.all()
     return render(request, 'listRestaurant.html',{'restaurantes':restaurantes,
     'asistentes':asistentes,'platillos':platillos})
+
+def newUser(request):
+    if request.method == 'POST':
+        newUser = UserForm(request.POST)
+        newProfile = ProfileForm(request.POST)
+        if newUser.is_valid() and newProfile.is_valid():
+            user = newUser.save()
+            profile = newProfile.save(commit=False)
+            profile.user = user
+            profile.save()
+        return redirect('homeAdmin')
+    else:
+        newUser = UserForm()
+        newProfile = ProfileForm()
+    return render(request,'newUser.html',{'user':newUser,'profile':newProfile})
