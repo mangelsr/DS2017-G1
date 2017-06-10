@@ -43,7 +43,8 @@ def listDishes(request):
     if (request.method == "POST"):
         selection = request.POST['selection']
         dishes = Dish.objects.filter(dish_choice=selection)
-        return render(request,'listDishes.html',{"dishes":dishes})
+        ndishes = len(dishes)
+        return render(request,'listDishes.html',{"ndishes":ndishes,"dishes":dishes})
     else:
         return render(request,'listDishes.html',{})
 
@@ -51,6 +52,7 @@ def searchDish(request):
     if (request.method == "POST"):
         dishName = request.POST['dishName']
         dishes = Dish.objects.filter(name__contains=dishName)
-        return render(request,'searchDish.html',{"dishes":dishes})
+        ndishes = len(dishes)
+        return render(request,'searchDish.html',{"ndishes":ndishes,"dishes":dishes})
     else:
         return render(request,'searchDish.html',{})
