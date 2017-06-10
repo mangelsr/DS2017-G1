@@ -106,7 +106,6 @@ def new_dish(request):
             newDish = form.save(commit=False)
             newDish.restaurant = Profile.objects.get(user=user).restaurant
             newDish.save()
-            form.save()
         return redirect('homeAssistant')
     else:
         form = DishForm()
@@ -131,4 +130,19 @@ def newRestaurant(request):
         return redirect('homeAdmin')
     else:
         form = RestaurantForm()
-        return render(request, 'newRestaurant.html',{'form': form})
+    return render(request, 'newRestaurant.html',{'form': form})
+
+def newUser(request):
+    if request.method == 'POST':
+        newUser = UserForm(request.POST)
+        newProfile = ProfileForm(request.POST)
+        if newUser.is_valid() and newProfile.is_valid():
+            user = newUser.save()
+            profile = newProfile.save(commit=False)
+            profile.user = user
+            profile.save()
+        return redirect('homeAdmin')
+    else:
+        newUser = UserForm()
+        newProfile = ProfileForm()
+    return render(request,'newUser.html',{'user':newUser,'profile':newProfile})

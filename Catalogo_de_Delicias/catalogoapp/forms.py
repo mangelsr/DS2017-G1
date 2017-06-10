@@ -28,7 +28,7 @@ class ProfileForm(forms.ModelForm):
             'role' : 'Rol del usuario'
         }
         widgets = {
-            'role' : forms.ChoiceField(choices=ROL,required=True)
+            'role' : forms.Select()
         }
 
 class RestaurantForm(forms.ModelForm):
