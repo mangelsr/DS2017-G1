@@ -56,10 +56,14 @@ def homeAdmin(request):
 
 def listDishes(request):
     if (request.method == "POST"):
+        naperitivos = len(Dish.objects.filter(dish_choice='Aperitivo'))
+        nfuertes = len(Dish.objects.filter(dish_choice='Plato Fuerte'))
+        npostres = len(Dish.objects.filter(dish_choice='Postre'))
         selection = request.POST['selection']
         dishes = Dish.objects.filter(dish_choice=selection)
         ndishes = len(dishes)
-        return render(request,'listDishes.html',{"ndishes":ndishes,"dishes":dishes})
+        return render(request,'listDishes.html',{"ndishes":ndishes,"dishes":dishes,
+        "naperitivos":naperitivos,"nfuertes":nfuertes,"npostres":npostres})
     else:
         return render(request,'listDishes.html',{})
 

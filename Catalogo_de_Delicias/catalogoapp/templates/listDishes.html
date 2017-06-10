@@ -3,14 +3,18 @@
 {% block content2 %}
 
 <main class="container" role='main'>
-
+  <h2 class='panel-title'>
+    Aperitivos: {{ naperitivos }}<br>
+    Platos fuertes: {{ nfuertes }}<br>
+    Postres: {{ npostres }}
+  </h2>
   <form method="post">
     {% csrf_token %}
     Seleccione un tipo de platillo:
     <select name="selection">
-      <option value="Aperitivo">Aperitivo</option>
-      <option value="Plato Fuerte">Plato Fuerte</option>
-      <option value="Postre">Postre</option>
+      <option value="Aperitivo">Aperitivo </option>
+      <option value="Plato Fuerte">Plato Fuerte </option>
+      <option value="Postre">Postre </option>
     </select>
     <button class="btn btn-primary" type="submit" style="margin-top: 0;">Listar</button>
   </form>
