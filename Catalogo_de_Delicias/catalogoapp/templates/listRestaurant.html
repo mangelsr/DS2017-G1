@@ -10,29 +10,47 @@
       <h2 class='panel-title' style="font-size:30px;">{{ restaurant.name }}</h2>
     </div>
     <div class="panel-body">
-      <h4>Direccion:</h4>{{ restaurant.address }}
-      <h4>Propietario:</h4>{{ restaurant.owner }}
-      <h4>Numero de telefono:</h4>{{ restaurant.phone_number }}
-
+      <h4>Datos del restaurante</h4>
+      <table class="table">
+        <tr>
+          <th>Direccion</th>
+          <th>Propietario</th>
+          <th>Numero de telefono</th>
+        </tr>
+        <tr>
+          <td>{{ restaurant.address }}</td>
+          <td>{{ restaurant.owner }}</td>
+          <td>{{ restaurant.phone_number }}</td>
+        </tr>
+      </table>
       <h4>Asistentes</h4>
       {% for asistente in asistentes %}
         {% if asistente.restaurant == restaurant %}
-          <li>{{ asistente }}</li>
+          <li style="font-size: 16px;">{{ asistente }}</li>
         {% endif %}
       {% endfor %}
 
       <h4>Platillos</h4>
+      <table class="table">
+      <tr>
+        <th>Nombre</th>
+        <th>Ingredientes</th>
+        <th>Descripcion</th>
+        <th>Tipo</th>
+        <th>Temperatura</th>
+      </tr>
       {% for platillo in platillos %}
         {% if platillo.restaurant == restaurant %}
-          <li>
-            Nombre:{{ platillo.name }} |
-            ingredientes:{{ platillo.ingredients }} |
-            Descripcion:{{ platillo.description }} |
-            Tipo:{{ platillo.dish_choice }} |
-            Temperatura:{{ platillo.temperature }}
-          </li>
+          <tr>
+            <td>{{ platillo.name }}</td>
+            <td>{{ platillo.ingredients }}</td>
+            <td>{{ platillo.description }}</td>
+            <td>{{ platillo.dish_choice }}</td>
+            <td>{{ platillo.temperature }}</td>
+          </tr>
         {% endif %}
       {% endfor %}
+      </table>
       </div>
     {% endfor %}
 
