@@ -7,7 +7,7 @@
   <div class="panel panel-default">
     {% for restaurant in restaurantes %}
     <div class="panel-heading">
-      <h2 class='panel-title'>{{ restaurant.name }}</h2>
+      <h2 class='panel-title' style="font-size:30px;">{{ restaurant.name }}</h2>
     </div>
     <div class="panel-body">
       <h4>Direccion:</h4>{{ restaurant.address }}
@@ -24,12 +24,18 @@
       <h4>Platillos</h4>
       {% for platillo in platillos %}
         {% if platillo.restaurant == restaurant %}
-          <li>{{ platillo }}</li>
+          <li>
+            Nombre:{{ platillo.name }} |
+            ingredientes:{{ platillo.ingredients }} |
+            Descripcion:{{ platillo.description }} |
+            Tipo:{{ platillo.dish_choice }} |
+            Temperatura:{{ platillo.temperature }}
+          </li>
         {% endif %}
       {% endfor %}
       </div>
     {% endfor %}
-    
+
   </div>
 
 </main>
