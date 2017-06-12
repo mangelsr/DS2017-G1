@@ -129,7 +129,7 @@ def new_dish(request):
     if (request.user.is_authenticated and (request.user.profile.role == "Ayudante")):
         if request.method == 'POST':
             user = request.user
-            form = DishForm(request.POST)
+            form = DishForm(request.POST, request.FILES)
             if form.is_valid():
                 newDish = form.save(commit=False)
                 newDish.restaurant = Profile.objects.get(user=user).restaurant

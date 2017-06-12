@@ -59,7 +59,7 @@ class DishForm(forms.ModelForm):
         fields = [
             'name',
             'ingredients',
-            #'image',
+            'image',
             'description',
             'dish_choice',
             'temperature'
@@ -67,7 +67,7 @@ class DishForm(forms.ModelForm):
         labels = {
             'name' : 'Nombre del plato',
             'ingredients' : 'Ingredientes del plato',
-            #'image' : 'Imagen del plato',
+            'image' : 'Imagen del plato',
             'description' : 'Descripcion del plato',
             'dish_choice' : 'Tipo de plato',
             'temperature' : 'Temperatura del plato'
@@ -75,7 +75,7 @@ class DishForm(forms.ModelForm):
         widgets = {
             'name' : forms.TextInput(attrs={'class':'form-control','id':'name','placeholder':'Nombre del plato aqui'}),
             'ingredients' : forms.TextInput(attrs={'class':'form-control','id':'ingredients','placeholder':'Ingredientes del plato aqui'}),
-            #'image' : forms.FileInput(),
+            'image' : forms.FileInput(),
             'description' : forms.TextInput(attrs={'class':'form-control','id':'description','placeholder':'Descripcion del plato aqui'}),
             'dish_choice' : forms.Select(),
             'temperature' : forms.Select()
