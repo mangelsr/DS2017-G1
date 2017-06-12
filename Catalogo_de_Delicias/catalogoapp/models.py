@@ -19,7 +19,7 @@ class Restaurant(models.Model):
 class Profile(models.Model):
     role = models.CharField(max_length=20,choices=ROL,default='C',null=False,blank=False)
     user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
-    restaurant = models.ForeignKey(Restaurant, related_name='profiles',null=True, blank=True)
+    restaurant = models.ForeignKey(Restaurant, related_name='profiles',null=True, blank=True, help_text='Solo necesario si el rol es Ayudante')
     def __unicode__(self):
         return self.user.username
     def __str__(self):
