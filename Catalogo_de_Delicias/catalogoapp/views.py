@@ -59,6 +59,11 @@ def homeAdmin(request):
 #VISTAS PARA EL ROL DE CLIENTE
 def listDishes(request):
     if (request.user.is_authenticated and (request.user.profile.role == "Cliente")):
+        if request.method == "GET":
+            naperitivos = len(Dish.objects.filter(dish_choice='Aperitivo'))
+            nfuertes = len(Dish.objects.filter(dish_choice='Plato Fuerte'))
+            npostres = len(Dish.objects.filter(dish_choice='Postre'))
+            return render(request,'listDishes.html',{"naperitivos":naperitivos,"nfuertes":nfuertes,"npostres":npostres})
         if (request.method == "POST"):
             naperitivos = len(Dish.objects.filter(dish_choice='Aperitivo'))
             nfuertes = len(Dish.objects.filter(dish_choice='Plato Fuerte'))

@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from .choices import *
+from django.db.models.signals import pre_delete
+from django.dispatch.dispatcher import receiver
 
 
 class Restaurant(models.Model):
@@ -40,6 +42,16 @@ class Dish(models.Model):
         return self.name
     def __str__(self):
         return self.name
+    """
+    def delete(self, *args, **kwargs):
+        self.image.delete()
+        super(Dish, self).delete(*args, **kwargs)
+    """
     class Meta:
         verbose_name = "Dish"
         verbose_name_plural = "Dishes"
+
+#Borra los ficheros de los platos que se eliminan.
+@receiver(pre_delete, sender=Dish)
+def dish_delete(sender, instance, **kwargs):
+    instance.dish.delete(False)
