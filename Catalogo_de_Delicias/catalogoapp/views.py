@@ -150,7 +150,7 @@ def edit_dish(request,id_dish):
             form = DishForm(request.POST,request.FILES,instance=dish)
             if form.is_valid():
                 newDish = form.save(commit=False)
-                newDish.restaurant = Profile.objects.get(user=user).restaurant
+                newDish.restaurant = request.user.profile.restaurant
                 newDish.save()
             return redirect('homeAssistant')
         return render(request,'dish_entry.html',{"dish":form})

@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^homeAssistant/listCategoryDishes$', listCategoryDishes, name='listCategoryDishes'),
     url(r'^homeAssistant/newDish$', new_dish, name='newDish'),
     url(r'^homeAssistant/viewDish/(?P<id_dish>\d+)/$',assistantviewDish, name='assistantviewDish'),
+    url(r'^homeAssistant/editDish/(?P<id_dish>\d+)/$',edit_dish, name='editDish'),
 
     #URLS DEL ROL ADMINISTRADOR
     url(r'^homeAdmin/$', homeAdmin, name='homeAdmin'),

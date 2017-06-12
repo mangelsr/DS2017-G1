@@ -3,13 +3,14 @@
 {% block content2 %}
 
 <main class="container" role='main'>
-  <h2>Nombre:</h2> <h3>{{ dish.name }}</h3><br>
-  <h2>Ingredientes:</h2> <h3>{{ dish.ingredients }}</h3><br>
-  <h2>Imagen:</h2> <img style="height:32em; width:32em;" src="{{ dish.image.url }}" class="img-responsive"/><br>
-  <h2>Descripción:</h2> <h3>{{ dish.description }}</h3><br>
-  <h2>Tipo de plato:</h2> <h3>{{ dish.dish_choice }}</h3><br>
-  <h2>Temperatura:</h2> <h3>{{ dish.temperature }}</h3><br>
-  <h2>Restaurante:</h2> <h3>{{ dish.restaurant }}</h3><br>
+  <h3>Nombre:</h3> <h4>{{ dish.name }}</h4>
+  <h3>Ingredientes:</h2> <h4>{{ dish.ingredients }}</h4>
+  <h3>Imagen:</h3> <img style="height:32em; width:32em;" src="{{ dish.image.url }}" class="img-responsive"/><br>
+  <h3>Descripción:</h3> <h4>{{ dish.description }}</h4>
+  <h3>Tipo de plato:</h3> <h4>{{ dish.dish_choice }}</h4>
+  <h3>Temperatura:</h3> <h4>{{ dish.temperature }}</h4>
+  <h3>Restaurante:</h3> <h4>{{ dish.restaurant }}</h4>
+  <input class="btn btn-lg btn-primary" type=button value="Regresar" onClick="javascript:history.go(-1);">
 </main>
 
 {% endblock content2 %}

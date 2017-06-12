@@ -14,7 +14,7 @@
     {% for dish in dishes %}
     <div class="panel-heading">
       <a href="{% url 'assistantviewDish' dish.id %}" class='text-right' style='float:right'>Mostrar</a>
-      <a class="text-right" style="float:right">Actualizar</a>
+      <a href="{% url 'editDish' dish.id %}" class="text-right" style="float:right">Actualizar</a>
       <h2 class='panel-title'>
          {{ dish.dish_choice }}: {{ dish.name }}
       </h2>

@@ -22,13 +22,16 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = [
-            'role'
+            'role',
+            'restaurant'
         ]
         labels = {
-            'role' : 'Rol del usuario'
+            'role' : 'Rol del usuario',
+            'restaurant': 'Restaurante en que labora'
         }
         widgets = {
-            'role' : forms.Select()
+            'role' : forms.Select(),
+            'restaurant' : forms.Select()
         }
 
 class RestaurantForm(forms.ModelForm):
