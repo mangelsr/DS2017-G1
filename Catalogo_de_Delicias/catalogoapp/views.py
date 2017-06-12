@@ -129,7 +129,7 @@ def new_dish(request):
     if (request.user.is_authenticated and (request.user.profile.role == "Ayudante")):
         if request.method == 'POST':
             user = request.user
-            form = DishForm(request.POST, request.FILES)
+            form = DishForm(request.POST,request.FILES)
             if form.is_valid():
                 newDish = form.save(commit=False)
                 newDish.restaurant = Profile.objects.get(user=user).restaurant
@@ -147,9 +147,11 @@ def edit_dish(request,id_dish):
         if request.method == "GET":
             form = DishForm(instance=dish)
         else:
-            form = DishForm(request.POST,instance=dish)
+            form = DishForm(request.POST,request.FILES,instance=dish)
             if form.is_valid():
-                form.save()
+                newDish = form.save(commit=False)
+                newDish.restaurant = Profile.objects.get(user=user).restaurant
+                newDish.save()
             return redirect('homeAssistant')
         return render(request,'dish_entry.html',{"dish":form})
     else:
