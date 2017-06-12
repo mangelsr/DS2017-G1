@@ -5,7 +5,6 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from .forms import *
 from .models import *
-from .forms import *
 
 # Create your views here.
 
@@ -82,7 +81,12 @@ def searchDishes(request):
     if (request.user.is_authenticated and (request.user.profile.role == "Cliente")):
         if (request.method == "POST"):
             dishName = request.POST['dishName']
-            dishes = Dish.objects.filter(name__contains=dishName, description__contains=dishName)
+            name_dishes = Dish.objects.filter(name__contains=dishName)
+            description_dishes = Dish.objects.filter(description__contains=dishName)
+            dishes = list(name_dishes)
+            for dish in description_dishes:
+                if dish not in dishes:
+                    dishes.append(dish)
             ndishes = len(dishes)
             return render(request,'searchDishes.html',{"ndishes":ndishes,"dishes":dishes})
         else:
