@@ -197,6 +197,8 @@ def newUser(request):
             newProfile = ProfileForm(request.POST)
             if newUser.is_valid() and newProfile.is_valid():
                 user = newUser.save()
+                user.set_password(user.password)
+                user.save()
                 profile = newProfile.save(commit=False)
                 profile.user = user
                 profile.save()
