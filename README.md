@@ -3,8 +3,9 @@ Catalogo de Delicias
 
 Instalacion
 -----------
-Debe tener instalado python en su computadora de preferencia python3
-Debe tener installado Django y Pillow
+Debe tener instalado python en su computadora, de preferencia python3
+Ejecute el siguiente comando:
+pip install -r ./requirements.txt
 
 Una vez hecho esto, ejecute:
 python manage.py runserver
