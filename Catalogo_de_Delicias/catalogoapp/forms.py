@@ -58,6 +58,7 @@ class RestaurantForm(forms.ModelForm):
         }
 
 class DishForm(forms.ModelForm):
+    
     class Meta:
         model = Dish
         fields = [

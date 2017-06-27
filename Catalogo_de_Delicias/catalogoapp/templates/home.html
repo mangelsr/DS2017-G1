@@ -6,16 +6,16 @@
   <div class="container-fluid">
     <ul class="nav navbar-nav">
       {% if role == "Cliente" %}
-        <li><a href="./listDishes">Listar Platillos</a></li>
-        <li><a href="./searchDish">Buscar Platillos</a></li>
+        <li><a href="http://localhost:8000/home/listDishes">Listar Platillos</a></li>
+        <li><a href="http://localhost:8000/home/searchDishes">Buscar Platillos</a></li>
       {% elif role == "Ayudante" %}
-        <li><a href="#">Agregar Platillo</a></li>
-        <li><a href="#">Mostrar Platillos</a></li>
-        <li><a href="#">Mostrar Platillos por categoría</a></li>
-      {% else %}
-        <li><a href="#">Agregar Restaurante</a></li>
-        <li><a href="#">Listar Restaurantes</a></li>
-        <li><a href="#">Agregar Usuario</a></li>
+        <li><a href="http://localhost:8000/home/newDish">Agregar Platillo</a></li>
+        <li><a href="http://localhost:8000/home/listDishes">Mostrar Platillos</a></li>
+        <li><a href="http://localhost:8000/home/listCategoryDishes">Mostrar Platillos por categoría</a></li>
+      {% elif role == "Administrador" %}
+        <li><a href="http://localhost:8000/home/newRestaurant">Agregar Restaurante</a></li>
+        <li><a href="http://localhost:8000/home/listRestaurant">Listar Restaurantes</a></li>
+        <li><a href="http://localhost:8000/home/newUser">Agregar Usuario</a></li>
       {% endif %}
     </ul>
     <ul class="nav navbar-nav navbar-right">

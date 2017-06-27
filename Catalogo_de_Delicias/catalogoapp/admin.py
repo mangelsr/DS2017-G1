@@ -5,3 +5,6 @@ from .models import *
 admin.site.register(Profile)
 admin.site.register(Restaurant)
 admin.site.register(Dish)
+admin.site.register(DishType)
+admin.site.register(DishTemperature)
+admin.site.register(DishCategory)

@@ -30,14 +30,44 @@ class Profile(models.Model):
         verbose_name = "Profile"
         verbose_name_plural = "Profiles"
 
+class DishType(models.Model):
+    name = models.TextField(max_length=25)
+    def __unicode__(self):
+        return self.name
+    def __str__(self):
+        return self.name
+    class Meta:
+        verbose_name = "Tipo"
+        verbose_name_plural = "Tipos"
+
+class DishTemperature(models.Model):
+    name = models.TextField(max_length=25)
+    def __unicode__(self):
+        return self.name
+    def __str__(self):
+        return self.name
+    class Meta:
+        verbose_name = "Temperatura"
+        verbose_name_plural = "Temperaturas"
+
+class DishCategory(models.Model):
+    name = models.TextField(max_length=30)
+    def __unicode__(self):
+        return self.name
+    def __str__(self):
+        return self.name
+    class Meta:
+        verbose_name = "Categoria"
+        verbose_name_plural = "Categorias"
+
 class Dish(models.Model):
     name = models.TextField(max_length=50)
     ingredients = models.TextField()
     image = models.ImageField(upload_to='photos/',null=True)
     description = models.TextField()
-    dish_choice = models.CharField(max_length=20,choices=DISH_CHOICE,default='A',null=False,blank=False)
-    temperature = models.CharField(max_length=20,choices=TEMPERATURE,default='C',null=False,blank=False)
-    restaurant = models.ForeignKey(Restaurant,related_name='dishes')
+    dish_choice = models.ForeignKey(DishType)
+    temperature = models.ForeignKey(DishTemperature)
+    restaurant = models.ForeignKey(Restaurant)
     def __unicode__(self):
         return self.name
     def __str__(self):

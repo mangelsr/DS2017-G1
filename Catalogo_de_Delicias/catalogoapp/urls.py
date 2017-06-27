@@ -13,25 +13,23 @@ urlpatterns = [
     url(r'^logout/$', logout, name="logout"),
     url(r'^noAccess/$', noAccess, name="noAccess"),
 
+    url(r'^home/$', home, name="home"),
+
     #URLS DEL ROL CLIENTE
-    url(r'^homeClient/$', homeClient, name='homeCliente'),
-    url(r'^homeClient/listDishes$', listDishes, name='listDishes'),
-    url(r'^homeClient/searchDishes$', searchDishes, name='searchDishes'),
-    url(r'^homeClient/viewDish/(?P<id_dish>\d+)/$',viewDish, name='viewDish'),
+    url(r'^home/listDishes$', listDishes, name='listDishes'),
+    url(r'^home/searchDishes$', searchDishes, name='searchDishes'),
+    url(r'^home/viewDish/(?P<id_dish>\d+)/$',viewDish, name='viewDish'),
 
     #URLS DEL ROL AYUDANTE/ASISTENTE
-    url(r'^homeAssistant/$', homeAssistant, name='homeAssistant'),
-    url(r'^homeAssistant/listDishes$', listDishesAssitant, name='listDishesAssitant'),
     url(r'^homeAssistant/listCategoryDishes$', listCategoryDishes, name='listCategoryDishes'),
-    url(r'^homeAssistant/newDish$', new_dish, name='newDish'),
-    url(r'^homeAssistant/viewDish/(?P<id_dish>\d+)/$',assistantviewDish, name='assistantviewDish'),
-    url(r'^homeAssistant/editDish/(?P<id_dish>\d+)/$',edit_dish, name='editDish'),
+
+    url(r'^home/newDish$', new_dish, name='newDish'),
+    url(r'^home/editDish/(?P<id_dish>\d+)/$',edit_dish, name='editDish'),
 
     #URLS DEL ROL ADMINISTRADOR
-    url(r'^homeAdmin/$', homeAdmin, name='homeAdmin'),
-    url(r'^homeAdmin/newRestaurant$', newRestaurant, name='newRestaurant'),
-    url(r'^homeAdmin/listRestaurant$', listRestaurant, name='listRestaurant'),
-    url(r'^homeAdmin/newUser$', newUser, name='newUser'),
+    url(r'^home/newRestaurant$', newRestaurant, name='newRestaurant'),
+    url(r'^home/listRestaurant$', listRestaurant, name='listRestaurant'),
+    url(r'^home/newUser$', newUser, name='newUser'),
 
 ]
 

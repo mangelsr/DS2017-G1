@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate
 from django.http import HttpResponse
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
+from django.db.models import Count
 from .forms import *
 from .models import *
 
@@ -15,13 +16,7 @@ def login(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             auth_login(request, user)
-            rol = Profile.objects.get(user=user).role
-            if (rol=="Cliente"):
-                return redirect('../homeClient')
-            elif (rol=="Ayudante"):
-                return redirect('../homeAssistant')
-            else:
-                return redirect('../homeAdmin')
+            return redirect('home')
         else:
             print("ERROR DE AUTENTICACION...")
             return render(request,'login.html',{'error':True})
@@ -35,50 +30,36 @@ def logout(request):
 def noAccess(request):
     return render(request, 'noAccess.html', {})
 
-
-#VISTAS DE HOME PARA CADA ROL
-def homeClient(request):
-    if (request.user.is_authenticated and (request.user.profile.role == "Cliente")):
-        return render(request,'homeClient.html')
-    else:
-        return redirect('noAccess')
-
-def homeAssistant(request):
-    if (request.user.is_authenticated and (request.user.profile.role == "Ayudante")):
-        return render(request,'homeAssistant.html')
-    else:
-        return redirect('noAccess')
-
-def homeAdmin(request):
-    if (request.user.is_authenticated and (request.user.profile.role == "Administrador")):
-        return render(request,'homeAdmin.html')
+def home(request):
+    if (request.user.is_authenticated):
+        role = request.user.profile.role
+        return render(request,'home.html',{'role':role})
     else:
         return redirect('noAccess')
 
 #VISTAS PARA EL ROL DE CLIENTE
 def listDishes(request):
-    if (request.user.is_authenticated and (request.user.profile.role == "Cliente")):
+    if (request.user.is_authenticated and (request.user.profile.role == "Cliente"
+        or request.user.profile.role == "Ayudante")):
         if request.method == "GET":
-            naperitivos = len(Dish.objects.filter(dish_choice='Aperitivo'))
-            nfuertes = len(Dish.objects.filter(dish_choice='Plato Fuerte'))
-            npostres = len(Dish.objects.filter(dish_choice='Postre'))
-            return render(request,'listDishes.html',{"naperitivos":naperitivos,"nfuertes":nfuertes,"npostres":npostres})
-        if (request.method == "POST"):
-            naperitivos = len(Dish.objects.filter(dish_choice='Aperitivo'))
-            nfuertes = len(Dish.objects.filter(dish_choice='Plato Fuerte'))
-            npostres = len(Dish.objects.filter(dish_choice='Postre'))
+            cuentaTipos = DishType.objects.annotate(nTypes=Count('dish'))
+            tipos = DishType.objects.all()
+            return render(request,'listDishes.html',{'role':request.user.profile.role,'tipos':tipos,
+            'cuentaTipos':cuentaTipos})
+        
+        elif (request.method == "POST"):   
             selection = request.POST['selection']
             dishes = Dish.objects.filter(dish_choice=selection)
-            ndishes = len(dishes)
-            return render(request,'listDishes.html',{"ndishes":ndishes,"dishes":dishes,
-            "naperitivos":naperitivos,"nfuertes":nfuertes,"npostres":npostres})
-        else:
-            return render(request,'listDishes.html',{})
+            cuentaTipos = DishType.objects.annotate(nTypes=Count('dish'))
+            tipos = DishType.objects.all()
+            return render(request,'listDishes.html',{'role':request.user.profile.role,'tipos':tipos,
+            'cuentaTipos':cuentaTipos,'dishes':dishes})
     else:
         return redirect('noAccess')
 
 def searchDishes(request):
-    if (request.user.is_authenticated and (request.user.profile.role == "Cliente")):
+    if (request.user.is_authenticated and (request.user.profile.role == "Cliente"
+        or request.user.profile.role == "Ayudante")):
         if (request.method == "POST"):
             dishName = request.POST['dishName']
             name_dishes = Dish.objects.filter(name__contains=dishName)
@@ -88,31 +69,22 @@ def searchDishes(request):
                 if dish not in dishes:
                     dishes.append(dish)
             ndishes = len(dishes)
-            return render(request,'searchDishes.html',{"ndishes":ndishes,"dishes":dishes})
+            return render(request,'searchDishes.html',{'role':request.user.profile.role,"ndishes":ndishes,"dishes":dishes})
         else:
-            return render(request,'searchDishes.html',{})
+            return render(request,'searchDishes.html',{'role':request.user.profile.role,})
     else:
         return redirect('noAccess')
 
 def viewDish(request,id_dish):
-    if (request.user.is_authenticated and (request.user.profile.role == "Cliente")):
+    if (request.user.is_authenticated and (request.user.profile.role == "Cliente"
+        or request.user.profile.role == "Ayudante")):
         dish = Dish.objects.get(id = id_dish)
-        return render(request,'detailDish.html',{"dish":dish})
+        return render(request,'detailDish.html',{'role':request.user.profile.role,"dish":dish})
     else:
         return redirect('noAccess')
 
 
 #VISTAS PARA EL ROL DE AYUDANTE/ASISTENTE DE RESTAURANTE
-def listDishesAssitant(request):
-    if (request.user.is_authenticated and (request.user.profile.role == "Ayudante")):
-        user = request.user
-        restaurant = Profile.objects.get(user=user).restaurant
-        dishes = Dish.objects.filter(restaurant=restaurant)
-        ndishes = len(dishes)
-        return render(request,'listDishesAssitant.html',{"restaurant":restaurant,"ndishes":ndishes,"dishes":dishes})
-    else:
-        return redirect('noAccess')
-
 def listCategoryDishes(request):
     if (request.user.is_authenticated and (request.user.profile.role == "Ayudante")):
         if (request.method == "POST"):
@@ -141,12 +113,12 @@ def new_dish(request):
             form = DishForm(request.POST,request.FILES)
             if form.is_valid():
                 newDish = form.save(commit=False)
-                newDish.restaurant = Profile.objects.get(user=user).restaurant
+                newDish.restaurant = user.profile.restaurant
                 newDish.save()
-            return redirect('homeAssistant')
+            return redirect('home')
         else:
             form = DishForm()
-        return render(request,'dish_entry.html',{"dish":form})
+        return render(request,'baseform.html',{'role':request.user.profile.role,"form":form})
     else:
         return redirect('noAccess')
 
@@ -161,8 +133,8 @@ def edit_dish(request,id_dish):
                 newDish = form.save(commit=False)
                 newDish.restaurant = request.user.profile.restaurant
                 newDish.save()
-            return redirect('homeAssistant')
-        return render(request,'dish_entry.html',{"dish":form})
+            return redirect('home')
+        return render(request,'baseform.html',{'role':request.user.profile.role,"form":form})
     else:
         return redirect('noAccess')
 
@@ -173,10 +145,10 @@ def newRestaurant(request):
             form = RestaurantForm(request.POST)
             if form.is_valid():
                 form.save()
-            return redirect('homeAdmin')
+            return redirect('home')
         else:
             form = RestaurantForm()
-        return render(request, 'newRestaurant.html',{'form': form})
+        return render(request, 'baseform.html',{'role':request.user.profile.role,'form': form})
     else:
         return redirect('noAccess')
 
@@ -185,7 +157,7 @@ def listRestaurant(request):
         restaurantes = Restaurant.objects.all()
         asistentes = Profile.objects.filter(role="Ayudante")
         platillos = Dish.objects.all()
-        return render(request, 'listRestaurant.html',{'restaurantes':restaurantes,
+        return render(request, 'listRestaurant.html',{'role':request.user.profile.role,'restaurantes':restaurantes,
         'asistentes':asistentes,'platillos':platillos})
     else:
         return redirect('noAccess')
@@ -202,10 +174,10 @@ def newUser(request):
                 profile = newProfile.save(commit=False)
                 profile.user = user
                 profile.save()
-            return redirect('homeAdmin')
+            return redirect('home')
         else:
             newUser = UserForm()
             newProfile = ProfileForm()
-        return render(request,'newUser.html',{'user':newUser,'profile':newProfile})
+        return render(request,'newUser.html',{'role':request.user.profile.role,'user':newUser,'profile':newProfile})
     else:
         return redirect('noAccess')
