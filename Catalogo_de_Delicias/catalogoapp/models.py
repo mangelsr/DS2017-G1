@@ -76,6 +76,7 @@ class Dish(models.Model):
     image = models.ImageField(upload_to='photos/',null=True)
     description = models.TextField()
     dish_choice = models.ForeignKey(DishType)
+    dish_category = models.ForeignKey(DishCategory,null=True)
     temperature = models.ForeignKey(DishTemperature)
     restaurant = models.ForeignKey(Restaurant)
     def __unicode__(self):
