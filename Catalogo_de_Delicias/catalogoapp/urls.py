@@ -16,20 +16,20 @@ urlpatterns = [
     url(r'^home/$', home, name="home"),
 
     #URLS DEL ROL CLIENTE
-    url(r'^home/listDishes$', listDishes, name='listDishes'),
-    url(r'^home/searchDishes$', searchDishes, name='searchDishes'),
-    url(r'^home/viewDish/(?P<id_dish>\d+)/$',viewDish, name='viewDish'),
+    url(r'^home/listDishesClient$', listDishesClient, name="listDishesClient"),
+    url(r'^home/searchDishes$', searchDishes, name="searchDishes"),
+    url(r'^home/viewDish/(?P<id_dish>\d+)/$',viewDish, name="viewDish"),
 
     #URLS DEL ROL AYUDANTE/ASISTENTE
-    url(r'^homeAssistant/listCategoryDishes$', listCategoryDishes, name='listCategoryDishes'),
-
-    url(r'^home/newDish$', new_dish, name='newDish'),
-    url(r'^home/editDish/(?P<id_dish>\d+)/$',edit_dish, name='editDish'),
+    url(r'^home/newDish$', new_dish, name="newDish"),    
+    url(r'^home/listDishesAssistant$', listDishesAssistant, name="listDishesAssistant"),
+    url(r'^home/listCategoryDishes$', listCategoryDishes, name="listCategoryDishes"),
+    url(r'^home/editDish/(?P<id_dish>\d+)/$',edit_dish, name="editDish"),
 
     #URLS DEL ROL ADMINISTRADOR
-    url(r'^home/newRestaurant$', newRestaurant, name='newRestaurant'),
-    url(r'^home/listRestaurant$', listRestaurant, name='listRestaurant'),
-    url(r'^home/newUser$', newUser, name='newUser'),
+    url(r'^home/newRestaurant$', newRestaurant, name="newRestaurant"),
+    url(r'^home/listRestaurant$', listRestaurant, name="listRestaurant"),
+    url(r'^home/newUser$', newUser, name="newUser"),
 
 ]
 

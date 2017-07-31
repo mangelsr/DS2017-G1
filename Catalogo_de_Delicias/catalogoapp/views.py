@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
 from django.contrib.auth import login as auth_login
@@ -19,9 +19,9 @@ def login(request):
             return redirect('home')
         else:
             print("ERROR DE AUTENTICACION...")
-            return render(request,'login.html',{'error':True})
+            return render(request,'login.html', {'error':True})
     else:
-        return render(request,'login.html',{})
+        return render(request, 'login.html', {})
 
 def logout(request):
     auth_logout(request)
@@ -38,15 +38,13 @@ def home(request):
         return redirect('noAccess')
 
 #VISTAS PARA EL ROL DE CLIENTE
-def listDishes(request):
-    if (request.user.is_authenticated and (request.user.profile.role.name == "Cliente"
-        or request.user.profile.role.name == "Ayudante")):
+def listDishesClient(request):
+    if (request.user.is_authenticated and request.user.profile.role.name == "Cliente"):
         if request.method == "GET":
             cuentaTipos = DishType.objects.annotate(nTypes=Count('dish'))
             tipos = DishType.objects.all()
             return render(request,'listDishes.html',{'role':request.user.profile.role.name,'tipos':tipos,
             'cuentaTipos':cuentaTipos})
-        
         elif (request.method == "POST"):   
             selection = request.POST['selection']
             dishes = Dish.objects.filter(dish_choice=selection)
@@ -68,8 +66,7 @@ def searchDishes(request):
             for dish in description_dishes:
                 if dish not in dishes:
                     dishes.append(dish)
-            ndishes = len(dishes)
-            return render(request,'searchDishes.html',{'role':request.user.profile.role.name,"ndishes":ndishes,"dishes":dishes})
+            return render(request,'searchDishes.html',{'role':request.user.profile.role.name,"dishes":dishes})
         else:
             return render(request,'searchDishes.html',{'role':request.user.profile.role.name,})
     else:
@@ -85,6 +82,20 @@ def viewDish(request,id_dish):
 
 
 #VISTAS PARA EL ROL DE AYUDANTE/ASISTENTE DE RESTAURANTE
+def listDishesAssistant(request):
+    if (request.user.is_authenticated and (request.user.profile.role.name == "Ayudante")):
+        if (request.method == "POST"):
+            selection = request.POST['selection']
+            user = request.user
+            restaurant = Profile.objects.get(user=user).restaurant
+            dishes = Dish.objects.filter(restaurant=restaurant, dish_choice=selection)
+            ndishes = len(dishes)
+            return render(request, 'listDishesAssistant.html', {"restaurant":restaurant,"ndishes":ndishes,"dishes":dishes})
+        else:
+            return render(request, 'listDishesAssistant.html', {})
+    else:
+        return redirect('noAccess')
+
 def listCategoryDishes(request):
     if (request.user.is_authenticated and (request.user.profile.role.name == "Ayudante")):
         if (request.method == "POST"):
@@ -93,16 +104,9 @@ def listCategoryDishes(request):
             restaurant = Profile.objects.get(user=user).restaurant
             dishes = Dish.objects.filter(restaurant=restaurant, dish_choice=selection)
             ndishes = len(dishes)
-            return render(request, 'listCategoryDishes.html', {"restaurant":restaurant,"ndishes":ndishes,"dishes":dishes})
+            return render(request, 'listDishesAssistant.html', {"restaurant":restaurant,"ndishes":ndishes,"dishes":dishes})
         else:
-            return render(request, 'listCategoryDishes.html', {})
-    else:
-        return redirect('noAccess')
-
-def assistantviewDish(request,id_dish):
-    if (request.user.is_authenticated and (request.user.profile.role.name == "Ayudante")):
-        dish = Dish.objects.get(id = id_dish)
-        return render(request,'detailDishAssistant.html',{"dish":dish})
+            return render(request, 'listDishesAssistant.html', {})
     else:
         return redirect('noAccess')
 

@@ -1,0 +1,555 @@
+commit bf5503d05dd00de30792e4ae78bca9473fc1971c
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sun Jul 30 01:04:13 2017 -0500
+
+    [ADD] atributo categoria a los platos
+
+commit 8fd19a31a3d0e6a7a2e6399ab76a8fa032dc7b28
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Wed Jun 28 17:52:20 2017 -0500
+
+    [FIX] se cambio los registros de la base para que se acomplen a los modelos, [FIX] se reubico el archivo de models, [FIX] se arreglo la vista de listar restaurantes
+
+commit 1a2b3215d2ab8ba57b1484c295e1e372e8caff49
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Wed Jun 28 16:45:02 2017 -0500
+
+    [ADD] Modelo de rol para los usuarios
+
+commit c194b3dfcfeb643066bdf61b2e6b07706d01d24f
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Tue Jun 27 17:33:59 2017 -0500
+
+    [ADD] template base para formularios simples, [DEL] templates para formularios de ingreso de producto y de restaurante, [ADD] nuevos modelos para cumplir 3FN, [FIX] template de listDish para leer los tipos de platos de la base de datos
+
+commit 9a993d1b81c1f3ae0d4fe309744e76d0a88a4e92
+Merge: 5c2e5cf 29887ab
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Mon Jun 12 22:11:20 2017 -0500
+
+    [MERGE]
+
+commit 5c2e5cffe7cba6309fa4d3675b0db262b2d64d43
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Mon Jun 12 22:08:42 2017 -0500
+
+    Se adjunta una base de datos de prueba para la prueba de sistema, fin del proyecto
+
+commit 29887ab4852d8861852958ada28d580acddc8230
+Author: alexis <alexisleo15@gmail.com>
+Date:   Mon Jun 12 22:01:52 2017 -0500
+
+    [UPD] README y requirements
+
+commit 890e14112157839b242d475aeab3fb45dd749973
+Author: alexis <alexisleo15@gmail.com>
+Date:   Mon Jun 12 21:22:28 2017 -0500
+
+    correccion en funcionalidad de crear un nuevo usuario
+
+commit fa5f6e41220df2498562a58e76342da2c0c2162d
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Mon Jun 12 20:29:16 2017 -0500
+
+    Cambios menores a templates de funcionalidades de ayudantes
+
+commit 773928c166646cd9b69e8ab7143b35512a8fcfa7
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Mon Jun 12 15:59:42 2017 -0500
+
+    cambio menores models.py
+
+commit 5381bf78fbd2820a486c55add2c048d546cafe5f
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Mon Jun 12 15:41:12 2017 -0500
+
+    se arreglo la busqueda
+
+commit 1fd5452dbdeb925e7b9f57fb7cbe354fcdbaa9d7
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Mon Jun 12 09:30:39 2017 -0500
+
+    Se arregló el template de mostrar platos para cliente y borrar las imágenes del servidor al eliminar plato
+
+commit 1bb5c12279692400a5df7c5fa954ba3540ab95dd
+Author: alexis <alexisleo15@gmail.com>
+Date:   Mon Jun 12 00:08:17 2017 -0500
+
+    Detalles
+
+commit ce31781277abdb9fa12c9ce22663e6b2f55f556a
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sun Jun 11 22:35:16 2017 -0500
+
+    [UPD] template vista detalles de platillos, se agrego boton regresar, [FIX] se arreglo el formulario de ingreso de usuarios y la vista de edicion de platillo
+
+commit 1463e67c395fd2a1ba7bf65ca7fb4476745f5991
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sun Jun 11 21:15:48 2017 -0500
+
+    se corrigio edit_dish en views
+
+commit 42e525805b297bab050e35356f9acec0568dc1ea
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sun Jun 11 21:08:25 2017 -0500
+
+    Se arreglo lo de subir imagenes
+
+commit 12d3902b520f97beda52bc4ccf53df1c28baaa25
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sun Jun 11 16:24:44 2017 -0500
+
+    [FIX] template de listar restaurantes, se usa tablas para mejor organizacion de datos
+
+commit cff83528360fa09104c54c809ebc40a775a84535
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sun Jun 11 12:21:08 2017 -0500
+
+    [FIX] template de listar restaurante
+
+commit 7bd14a4dd2741b236316f337701939e7694cfc2f
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sun Jun 11 12:02:33 2017 -0500
+
+    [ADD] autenticacion y verificacion de permisos en las vistas de funciones del sistema, [ADD] breve documentacion de urls y vistas
+
+commit fc9698ee5c0ff525acc24b47e467093f94a41399
+Merge: 0690335 30dffda
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 18:29:51 2017 -0500
+
+    [MERGE]
+
+commit 069033519931f0b7f865e530309dcee3f95c7af8
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 18:27:03 2017 -0500
+
+    [ADD] Funcionalidad de listar Restaurante
+
+commit 30dffda391fa5a26d56c9c1dc480f56fa7cd193c
+Merge: 1e6a918 604ff85
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 18:23:45 2017 -0500
+
+    Merge branch 'master' of https://bitbucket.org/buentrip/ds2017-g1
+
+commit 1e6a9185a993ab07b546a0cbec0dfde2c3411b05
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 18:23:26 2017 -0500
+
+    Se agrego mostrar numeros de platillos al cliente
+
+commit 604ff85cfb9b591c34c81d73d4fabeba780b016d
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 18:23:25 2017 -0500
+
+    se agrego la funcionalidad de agregar un usuario del perfil de administrador
+
+commit 47bc08b0d0959833662291f6461e9780deca8351
+Merge: 774f294 fb765fc
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 17:51:50 2017 -0500
+
+    Merge branch 'master' of https://bitbucket.org/buentrip/ds2017-g1
+
+commit 774f294a717456e804cc4f282dae5aea110c9029
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 17:51:39 2017 -0500
+
+    correciones en la funcionalidad del ayudante again
+
+commit fb765fc4df8a9fc5c77e7b102e20e5c93b4b938b
+Merge: 81ded5c c03b8c3
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 17:07:21 2017 -0500
+
+    Merge branch 'master' of https://bitbucket.org/buentrip/ds2017-g1
+
+commit 81ded5c477904df2ed8bed55fd57e6cc891bf35e
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 17:07:07 2017 -0500
+
+    [ADD] Funcionalidad de agregar restaurante
+
+commit c03b8c3197a8d71bede74157d15408e01bfab151
+Merge: 48c022b e6c4fb7
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 17:01:45 2017 -0500
+
+    Merge branch 'master' of https://bitbucket.org/buentrip/ds2017-g1
+
+commit 48c022b80914e90b0fb0d50b592600399cc77231
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 17:01:37 2017 -0500
+
+    cambios en el formato
+
+commit e6c4fb7b07e3c48ceb2bed757d21e0a5e7806562
+Merge: 1afd9aa f6dd024
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 17:00:27 2017 -0500
+
+    merging
+
+commit 1afd9aa196014e5274d94951d60e3ac534e79369
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 16:58:52 2017 -0500
+
+    correccion de funcionalidad de ayudantes
+
+commit f6dd0240464dc38824d0eacb131c69acf6ac8076
+Merge: 7f90658 dc79f39
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 16:29:03 2017 -0500
+
+    Merge branch 'master' of https://bitbucket.org/buentrip/ds2017-g1
+
+commit dc79f392e935672847b51245a4df95e633e77c02
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 16:22:37 2017 -0500
+
+    Cambio idioma
+
+commit 7f9065815760d41c1585666a500c264e209f25a9
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 16:12:39 2017 -0500
+
+    [MERGE]
+
+commit c290ec91c49927078894d00e4fd6ae830a4c1220
+Merge: 7163c46 03adef0
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 16:01:40 2017 -0500
+
+    Merge branch 'master' of https://bitbucket.org/buentrip/ds2017-g1
+
+commit 7163c46609caf02a8479fe14b06009779ac4c965
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 16:01:29 2017 -0500
+
+    [ADD] Detailview para asistente
+
+commit 03adef066b0f423281052813efd83cf471a700c2
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 15:46:28 2017 -0500
+
+    cambios menores
+
+commit d195020333327bd65a1c4e6a6c5f91cab0e27558
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 15:36:11 2017 -0500
+
+    se arregló mostrar platillo para que se vea la imagen desde el servidor
+
+commit 3d7ebdc2ae5db15094097b1db8e628423fa717f1
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 15:21:58 2017 -0500
+
+    Se agregro la opcion para visualizar la imagen en el template DetailDish
+
+commit 28deb7be99775b37d2890394ef02356b54569a26
+Merge: f3fafe2 1d13999
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 14:48:55 2017 -0500
+
+    merging again
+
+commit f3fafe2221b7a14d2fdba91881d0080ebca825c2
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 14:43:55 2017 -0500
+
+    pequena correccion en el DishForm
+
+commit 1d13999820a77abc5dcb4f678127574147c25d66
+Merge: d937890 8cdb60b
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 14:39:16 2017 -0500
+
+    Merge branch 'master' of https://bitbucket.org/buentrip/ds2017-g1
+
+commit d937890fdc3798c32583ac961480503b2e082360
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 14:39:04 2017 -0500
+
+    cambios
+
+commit 8cdb60b4b3bf42342bd236a86ea25340c393d89b
+Merge: 3882fdc efd19b3
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 14:38:01 2017 -0500
+
+    [MERGE]
+
+commit 3882fdccfe867936bf0a3828c4e6f2b580686dfc
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 14:36:31 2017 -0500
+
+    [ADD] funciones de view Ayudante
+
+commit efd19b3a79dcd924646f5d33a6a7d04a1c99ed1a
+Merge: 93e4cd9 b0b5875
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 14:22:23 2017 -0500
+
+    Merge branch 'master' of https://bitbucket.org/buentrip/ds2017-g1
+
+commit 93e4cd948c2917389c2dae062dd1cbe19175af73
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 14:22:02 2017 -0500
+
+    Se creo la opcion de subir imagen y almacenarla en la base de datos
+
+commit b0b587507dac0d25fbd006fbac6c2f14f9849195
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 14:19:43 2017 -0500
+
+    [FIX] Cambios que se perdieron
+
+commit 59a29642e28806114a8f1791d91080c0691fa310
+Merge: cadc2d6 5adcbbe
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 14:14:52 2017 -0500
+
+    Merge con cambios de Alexis
+
+commit cadc2d6205ffece183b510fad86b2cd077b57122
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 14:12:28 2017 -0500
+
+    [ADD] funciones de busqueda para asistente
+
+commit 5adcbbeb552e941f5f71d22de5be3a84e40aacca
+Merge: 62d26be 609430e
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 14:10:12 2017 -0500
+
+    Merge branch 'master' of https://bitbucket.org/buentrip/ds2017-g1
+
+commit 62d26beaa49f84daeb55a1bb0c6d45de40f42289
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 14:09:31 2017 -0500
+
+    Funcionalidad para agregar un platillo como asistente
+
+commit 609430e7e1659b2ee39529fc27d39cc18ee43a09
+Merge: ab292be ba8cc26
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 12:05:36 2017 -0500
+
+    Merge branch 'master' of https://bitbucket.org/buentrip/ds2017-g1
+
+commit ab292be70e5baad7bfc52a9426a03e56cc39f9ad
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat Jun 10 12:05:19 2017 -0500
+
+    variables para guardar imagenes
+
+commit ba8cc2639a15e2dbe074eb194e0d353270536f0c
+Merge: f46c107 6dd7ef8
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 12:01:39 2017 -0500
+
+    merging
+
+commit f46c10741544b10abb6db10e308ab735ff68fdd5
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 12:00:40 2017 -0500
+
+    .
+
+commit 6dd7ef85c27149ce00b22ebf69f625be8995b4c3
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 11:58:01 2017 -0500
+
+    [ADD] urls de los demas roles
+
+commit 08e9c9e9f3442de90752441f7d2b05c8d035c251
+Merge: 11b6e79 bb9e670
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 11:38:04 2017 -0500
+
+    Merge branch 'master' of https://bitbucket.org/buentrip/ds2017-g1
+
+commit bb9e6702f311b2b511037ba0a9c61de055a28654
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 16:35:15 2017 -0500
+
+    [UPD] Detailview de los platillos y urls relativas
+
+commit 11b6e793b687b165970ceab6043f4b4740fb5ee5
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 11:37:45 2017 -0500
+
+    Se crearon los forms
+
+commit 43303e1534ef1f0db3b8a182107354d17c426295
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 09:55:36 2017 -0500
+
+    se cambiaron las choices desde el admin
+
+commit 1adbe80825351827f86e168f2d53ecd268ad88ea
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 09:38:01 2017 -0500
+
+    Se agregaron las clases m
+    eta a los modelos
+
+commit a6ab45a2168c3dfc283025dc47261ed35cda1ab7
+Merge: 20d6ed8 c961285
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 14:33:41 2017 -0500
+
+    Merge branch 'master' of https://bitbucket.org/buentrip/ds2017-g1
+
+commit 20d6ed854a781ac10bf9cc71de4edfb880950e3f
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 14:33:28 2017 -0500
+
+    [ADD] Validacion de respuesta a la consulta
+
+commit c961285122197eeadd3ea69f1aac9e7f2c1b979b
+Author: alexis <alexisleo15@gmail.com>
+Date:   Sat Jun 10 09:32:14 2017 -0500
+
+    Se sobreescribieron los __str__ de cada metodo
+
+commit 3860e6e0c7270572bf8d823883a7288ca14b2e54
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat Jun 10 01:00:44 2017 -0500
+
+    [ADD] funcionalidades para el usuario
+
+commit 0215afd8fc191ba23ad8d98b42957b7b82df4867
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Wed Jun 7 07:40:52 2017 -0500
+
+    [UPD] migrations
+
+commit 537bd23db836b476f181465be8bbab1fa805ced1
+Merge: 0ca6a94 0361e39
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Wed Jun 7 07:32:23 2017 -0500
+
+    Merge branch 'master' of https://bitbucket.org/buentrip/ds2017-g1
+
+commit 0ca6a946a75e218fa6862ac78e83518f571736a0
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Wed Jun 7 07:30:50 2017 -0500
+
+    [FIX] problema con los archivos migracion
+
+commit 0361e39f9ea61b45ed0be26846c545e812aba9e0
+Author: alexis <alexisleo15@gmail.com>
+Date:   Tue Jun 6 23:13:47 2017 -0600
+
+    se hizo un refactor a los modelos
+
+commit 1c7d6bc6ba5b932bf169d16d99587f3f9f55cf77
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Mon Jun 5 23:37:18 2017 -0500
+
+    Se terminaron de corregir faltas
+
+commit 586e45ddaceb0946d942c2ec778c8abfd94bdc11
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Mon Jun 5 23:27:15 2017 -0500
+
+    Se corrigieron las faltas ortográficas :D
+
+commit 6af93774d3bde6157ded2be3df27aa6198b21dbb
+Author: alexis <alexisleo15@gmail.com>
+Date:   Mon Jun 5 19:33:23 2017 -0600
+
+    correccion de pequenos errores
+
+commit e622c4c01a56e540cac518e78ffe455d2361a7fc
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Fri Jun 2 22:13:00 2017 -0500
+
+    [ADD] Se agrego vista, template y url del menu principal de cada tipo de usuario
+
+commit e5c5b741d30698652bea6a74973e525654df0da9
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Thu Jun 1 23:09:32 2017 -0500
+
+    [FIX] Relacion entre perfiles y restaurantes, [ADD] metodo unicode para mostrar el nombre de los modelos
+
+commit 6d8ea76608586076578e987a303201aab44fe883
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Tue May 30 23:08:16 2017 -0500
+
+    [UPD] se les agrego priedad name a las url, [UPD] se mejoro el template del logout, [UPD] se cambio la vista del login en caso de error en la autenticacion
+
+commit a90ed2cb7acf3292683473fce20b0365ba4051ef
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sun May 28 17:35:39 2017 -0500
+
+    [ADD] custom login que verifica el rol del usuario, [ADD] pagina de logout
+
+commit 77b269496e04dbfe2f690a4437dbe1d3f2d42626
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sat May 27 18:54:16 2017 -0500
+
+    [ADD] bootstrap, url de login, template de login y view login
+
+commit ba29cb1ac0c4414d56a6bbb2a075c7ed3ab214ef
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Fri May 26 23:05:31 2017 -0500
+
+    [FIX] correccion de modelos a usar
+
+commit f07e67791541aec2634ddce7790ef56297d77cb6
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Fri May 26 22:13:39 2017 -0500
+
+    [ADD] desiciones de implementacion
+
+commit f8c6d0059f989d9591313e7adc8e77552f6f2aec
+Author: vivilaurido <lauridoviviana@gmail.com>
+Date:   Thu May 25 19:47:31 2017 +0000
+
+    README.md edited online with Bitbucket
+
+commit 9d7288f76d23096ab724590f0090791e59b40fda
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Wed May 24 00:18:54 2017 -0500
+
+    [ADD] modelos de los objetos que interacturan, aun no migrados
+
+commit c56072d121f66bd8a67afe94cb4450953b99f949
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Mon May 22 14:40:21 2017 -0500
+
+    [ADD] Estructura del proyecto django
+
+commit 9cbdf01da5ccae20a24edbfd611976b11d456239
+Merge: 32f1759 2188046
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sun May 21 21:34:38 2017 -0500
+
+    Merge branch 'master' of https://github.com/mangelsr/DS2017-G1
+
+commit 32f17593297552586b77fa89d68599d2eeebd871
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Sun May 21 21:33:52 2017 -0500
+
+    [ADD] archivo .gitignore
+
+commit 2188046b021dec6f7b7e1470d108828974faa3a4
+Author: Viviana Laurido <vlaurido@espol.edu.ec>
+Date:   Sat May 6 10:21:40 2017 -0500
+
+    Se agregó el nombre Viviana Laurido en el archivo nombres.txt
+
+commit a62a5ac39811d0e1fff4dcfba1430b7e4b5f61bb
+Author: Miguel Sanchez <mangelsr@live.com>
+Date:   Fri May 5 21:55:32 2017 -0500
+
+    [ADD] Agrege mi nombre al archivo nombres.txt
+
+commit bb24bad933f3761e95dfe7465dfca6f8aa07acab
+Author: Alexis Rivadeneira <alexisleo15@gmail.com>
+Date:   Fri May 5 20:32:55 2017 -0500
+
+    [ADD] se agrego el nombre de Alexis Rivadeneira al archivo de nombres
