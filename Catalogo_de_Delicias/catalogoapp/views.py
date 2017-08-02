@@ -43,14 +43,14 @@ def listDishesClient(request):
         if request.method == "GET":
             cuentaTipos = DishType.objects.annotate(nTypes=Count('dish'))
             tipos = DishType.objects.all()
-            return render(request,'listDishes.html',{'role':request.user.profile.role.name,'tipos':tipos,
+            return render(request,'listDishesClient.html',{'role':request.user.profile.role.name,'tipos':tipos,
             'cuentaTipos':cuentaTipos})
         elif (request.method == "POST"):   
             selection = request.POST['selection']
             dishes = Dish.objects.filter(dish_choice=selection)
             cuentaTipos = DishType.objects.annotate(nTypes=Count('dish'))
             tipos = DishType.objects.all()
-            return render(request,'listDishes.html',{'role':request.user.profile.role.name,'tipos':tipos,
+            return render(request,'listDishesClient.html',{'role':request.user.profile.role.name,'tipos':tipos,
             'cuentaTipos':cuentaTipos,'dishes':dishes})
     else:
         return redirect('noAccess')
