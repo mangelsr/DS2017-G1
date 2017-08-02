@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+
+{% block content2 %}
+
+<main class="container" role='main'>
+
+  <form method="post">
+    {% csrf_token %}
+    Seleccione un tipo de platillo:
+    <select name="selection">
+      {% for tipo in tipos %}
+      <option value="{{ tipo.id }}">{{ tipo.name }}</option>
+      {% endfor %}
+    </select>
+    <button class="btn btn-primary" type="submit" style="margin-top: 0;">Listar</button>
+  </form>
+
+  {% if ndishes == 0 %}
+    <h2 class='panel-title'>
+      No hay platos para mostrar
+    </h2>
+  {% else %}
+  <div class="panel panel-default">
+    {% for dish in dishes %}
+    <div class="panel-heading">
+      <a href="{% url 'viewDish' dish.id %}" class='text-right' style='float:right'>Mostrar</a>
+      <a href="{% url 'editDish' dish.id %}" class="text-right" style="float:right">Actualizar</a>
+      <h2 class='panel-title'>
+        Nombre: {{ dish.name }}
+      </h2>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+</main>
+
+{% endblock content2 %}
