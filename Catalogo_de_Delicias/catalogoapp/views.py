@@ -84,15 +84,12 @@ def viewDish(request,id_dish):
 #VISTAS PARA EL ROL DE AYUDANTE/ASISTENTE DE RESTAURANTE
 def listDishesAssistant(request):
     if (request.user.is_authenticated and (request.user.profile.role.name == "Ayudante")):
-        if (request.method == "POST"):
-            selection = request.POST['selection']
-            user = request.user
-            restaurant = Profile.objects.get(user=user).restaurant
-            dishes = Dish.objects.filter(restaurant=restaurant, dish_choice=selection)
-            ndishes = len(dishes)
-            return render(request, 'listDishesAssistant.html', {"restaurant":restaurant,"ndishes":ndishes,"dishes":dishes})
-        else:
-            return render(request, 'listDishesAssistant.html', {})
+        user = request.user
+        restaurant = Profile.objects.get(user=user).restaurant
+        dishes = Dish.objects.filter(restaurant=restaurant)
+        ndishes = len(dishes)
+        return render(request,'listDishesAssitant.html',{"role":request.user.profile.role.name,
+            "restaurant":restaurant,"ndishes":ndishes,"dishes":dishes})
     else:
         return redirect('noAccess')
 
