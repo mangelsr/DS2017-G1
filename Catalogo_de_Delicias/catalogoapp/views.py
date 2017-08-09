@@ -38,7 +38,7 @@ def home(request):
 
 #VISTAS PARA EL ROL DE CLIENTE
 @login_required(login_url='login')
-def listDishesClient(request):
+def listDishesClient(request,permisions=["Cliente"]):
     if (request.user.profile.role.name == "Cliente"):
         if request.method == "GET":
             cuentaTipos = DishType.objects.annotate(nTypes=Count('dish'))
@@ -57,8 +57,7 @@ def listDishesClient(request):
 
 @login_required(login_url='login')
 def searchDishes(request):
-    if (request.user.profile.role.name == "Cliente"
-        or request.user.profile.role.name == "Ayudante"):
+    if (request.user.profile.role.name == "Cliente"):
         if (request.method == "POST"):
             dishName = request.POST['dishName']
             name_dishes = Dish.objects.filter(name__contains=dishName)
