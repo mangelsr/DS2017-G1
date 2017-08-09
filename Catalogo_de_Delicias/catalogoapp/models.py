@@ -14,6 +14,12 @@ class Restaurant(models.Model):
         return self.name
     def __str__(self):
         return self.name
+    def getDishes(self):
+        dishes = Dish.objects.filter(restaurant=self)
+        return dishes
+    def getAssistants(self):
+        assistants = Profile.objects.filter(restaurant=self)
+        return assistants
     class Meta:
         verbose_name = "Restaurant"
         verbose_name_plural = "Restaurants"
@@ -36,6 +42,8 @@ class Profile(models.Model):
         return self.user.username
     def __str__(self):
         return self.user.username
+    def getRestaurant(self):
+        return self.restaurant
     class Meta:
         verbose_name = "Profile"
         verbose_name_plural = "Profiles"
