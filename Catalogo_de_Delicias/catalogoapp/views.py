@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.db.models import Count
 from .forms import *
 from .models import *
-from django.http import HttpResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
