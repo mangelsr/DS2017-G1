@@ -3,10 +3,11 @@ from django.contrib.auth.models import User
 from .role import Role
 from .restaurant import Restaurant
 
+
 class Profile(models.Model):
+    user = models.OneToOneField(User, primary_key=True, related_name='user', on_delete=models.CASCADE)
     role = models.ForeignKey(Role, null=False, blank=False)
-    user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
-    restaurant = models.ForeignKey(Restaurant, related_name='profiles', null=True, blank=True, help_text='Solo necesario si el rol es Ayudante')
+    restaurant = models.ForeignKey(Restaurant, related_name='restaurant', null=True, blank=True, help_text='Solo necesario si el rol es Ayudante')
     is_student = models.BooleanField()
     
     def __unicode__(self):
