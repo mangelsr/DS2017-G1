@@ -6,10 +6,10 @@ class Style(models.Model):
     size = models.IntegerField()
 
     def __unicode__(self):
-        return self.font + self.size + self.color
+        return self.font + " " + str(self.size) + " " + self.color
     
     def __str__(self):
-        return self.font + self.size + self.color
+        return self.font + " " + str(self.size) + " " + self.color
     
     class Meta:
         verbose_name = "Style"
