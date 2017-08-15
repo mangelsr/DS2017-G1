@@ -120,7 +120,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'login'
 
 #where Django stores uploaded files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
