@@ -1,7 +1,7 @@
 from django.db import models
 
 class DishType(models.Model):
-    name = models.TextField(max_length=25)
+    name = models.CharField(max_length=25)
     
     def __unicode__(self):
         return self.name

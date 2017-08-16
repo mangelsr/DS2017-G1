@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
+
 from catalogoapp.forms import *
 from catalogoapp.models import *
 
@@ -72,4 +73,11 @@ def edit_dish(request,id_dish):
 @login_required()
 @user_passes_test(assistant_check, login_url='noAccess')
 def postLunch(request):
-    return render(request, 'postLunch.html')
+    if request.method == "POST":
+        form = LunchForm()
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = LunchForm()
+    return render(request, 'postLunch.html',{'role':request.user.profile.role.name,'lunch':form})
