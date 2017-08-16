@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.db.models import Count
 from django.contrib.auth.decorators import login_required, user_passes_test
+import datetime
 from catalogoapp.models import *
 
 
@@ -61,11 +62,13 @@ def viewDish(request,id_dish):
 @user_passes_test(user_check, login_url='noAccess')
 def orderLunch(request):
     restaurants = Restaurant.objects.filter(offer_lunch=True)
-    return render(request, 'orderLunch.html', {'role': request.user.profile.role.name, 'restaurants': restaurants})
+    return render(request, 'orderLunch.html', {'role': request.user.profile.role.name,
+                                               'restaurants': restaurants})
 
 @login_required()
 @user_passes_test(user_check, login_url='noAccess')
 def selectLunch(request, id_restaurant):
-    lunches = Lunch.objects.filter(offer_lunch=True)
-    executiveLunches = ExcecutiveLunch.objects.filter(restaurant=id_restaurant)
-    return render(request, 'orderLunch.html', {'role': request.user.profile.role.name, 'lunches': lunches})
+    lunches = Lunch.objects.filter(restaurant=id_restaurant, date=datetime.date.today())
+    executiveLunches = ExcecutiveLunch.objects.filter(restaurant=id_restaurant, date=datetime.date.today())
+    return render(request, 'selectLunch.html', {'role': request.user.profile.role.name, 'lunches': lunches,
+                                                'executives': executiveLunches})

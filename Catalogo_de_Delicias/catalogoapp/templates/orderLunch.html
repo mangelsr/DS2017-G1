@@ -8,7 +8,7 @@
     {% for restaurant in restaurants %}
     <div class="panel-heading">
       <h2 class='panel-title'>
-        <a href="{% 'selectLunch' restaurant.id %}">
+        <a href="{% url 'selectLunch' restaurant.id %}">
         Restaurant: {{ restaurant.name }}
         </a>
       </h2>
