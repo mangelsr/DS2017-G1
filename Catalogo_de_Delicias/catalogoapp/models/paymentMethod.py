@@ -1,8 +1,10 @@
+import abc
 from abc import ABCMeta
 
-class PaymentMethod(metaclass=ABCMeta):
+class PaymentMethod:
+    __metaclass__ = abc.ABCMeta
 
-    @abtractmethod
+    @abc.abstractmethod
     def pagar(self, total): pass
 
     def __unicode__(self):
