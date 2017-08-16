@@ -9,8 +9,7 @@ class Order(models.Model):
     include_dessert = models.BooleanField()
     include_juice = models.BooleanField()
     cost = models.FloatField()
-    paymentMethod = models.ForeignKey(PaymentMethod)
-    
+
     class Meta:
         verbose_name = "Order"
         verbose_name_plural = "Orders"
