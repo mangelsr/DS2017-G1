@@ -42,11 +42,10 @@ def listCategoryDishes(request):
 @user_passes_test(assistant_check, login_url='noAccess')
 def new_dish(request):
     if request.method == 'POST':
-        user = request.user
         form = DishForm(request.POST,request.FILES)
         if form.is_valid():
             newDish = form.save(commit=False)
-            newDish.restaurant = user.profile.restaurant
+            newDish.restaurant = request.user.profile.restaurant
             newDish.save()
         return redirect('home')
     else:
@@ -74,9 +73,14 @@ def edit_dish(request,id_dish):
 @user_passes_test(assistant_check, login_url='noAccess')
 def postLunch(request):
     if request.method == "POST":
-        form = LunchForm()
+        dish = Dish.objects.all()
+        form = LunchForm(request.POST)
+        form.soup.filter(restaurant=request.user.profile.restaurant)
+        form.main_curse.filter(restaurant=request.user.profile.restaurant)
         if form.is_valid():
-            form.save()
+            lunch = form.save(commit=False)
+            lunch.restaurant = request.user.profile.restaurant
+            lunch.save()
             return redirect('home')
     else:
         form = LunchForm()
