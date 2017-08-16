@@ -60,4 +60,12 @@ def viewDish(request,id_dish):
 @login_required()
 @user_passes_test(user_check, login_url='noAccess')
 def orderLunch(request):
-    return render(request, 'orderLunch.html')
+    restaurants = Restaurant.objects.filter(offer_lunch=True)
+    return render(request, 'orderLunch.html', {'role': request.user.profile.role.name, 'restaurants': restaurants})
+
+@login_required()
+@user_passes_test(user_check, login_url='noAccess')
+def selectLunch(request, id_restaurant):
+    lunches = Lunch.objects.filter(offer_lunch=True)
+    executiveLunches = ExcecutiveLunch.objects.filter(restaurant=id_restaurant)
+    return render(request, 'orderLunch.html', {'role': request.user.profile.role.name, 'lunches': lunches})
