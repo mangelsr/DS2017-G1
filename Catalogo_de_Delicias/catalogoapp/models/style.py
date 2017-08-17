@@ -1,11 +1,10 @@
 from django.db import models
-from .choices import fonts
-from .choices import colors
+from .choices import *
 
 class Style(models.Model):
     color = models.CharField(choices=colors, max_length=20)
     font = models.CharField(choices=fonts, max_length=30)
-    size = models.IntegerField()
+    size = models.IntegerField(choices=sizes)
 
     def __unicode__(self):
         return self.font + " " + str(self.size) + " " + self.color
