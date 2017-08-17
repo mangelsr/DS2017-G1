@@ -7,6 +7,6 @@ from .restaurant import Restaurant
 from .role import Role
 from .profile import Profile
 from .lunch import Lunch
-from .executiveLunch import ExcecutiveLunch
+from .executiveLunch import ExecutiveLunch
 from .paymentMethod import PaymentMethod
 from .order import Order

@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^home/listCategoryDishes$', listCategoryDishes, name="listCategoryDishes"),
     url(r'^home/editDish/(?P<id_dish>\d+)/$', edit_dish, name="editDish"),
     url(r'^home/postLunch$', postLunch, name="postLunch"),
+    url(r'^home/postExecutiveLunch$', postExecutiveLunch, name="postExecutiveLunch"),
 
     #URLS DEL ROL ADMINISTRADOR
     url(r'^home/newRestaurant$', newRestaurant, name="newRestaurant"),

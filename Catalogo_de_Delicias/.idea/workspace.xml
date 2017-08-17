@@ -42,18 +42,18 @@
       <file leaf-file-name="payLunch.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/catalogoapp/templates/payLunch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+            <state relative-caret-position="450">
+              <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="creditCardMethod.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/catalogoapp/models/creditCardMethod.py">
+      <file leaf-file-name="lunchForm.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/catalogoapp/forms/lunchForm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="486">
+              <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -98,7 +98,6 @@
         <option value="$PROJECT_DIR$/catalogoapp/forms/executiveLunch.py" />
         <option value="$PROJECT_DIR$/catalogoapp/forms/__init__.py" />
         <option value="$PROJECT_DIR$/catalogoapp/forms/restaurantForm.py" />
-        <option value="$PROJECT_DIR$/catalogoapp/forms/lunchForm.py" />
         <option value="$PROJECT_DIR$/catalogoapp/templates/listDishesClient.html" />
         <option value="$PROJECT_DIR$/catalogoapp/templates/orderLunch.html" />
         <option value="$PROJECT_DIR$/catalogoapp/urls.py" />
@@ -111,6 +110,7 @@
         <option value="$PROJECT_DIR$/catalogoapp/models/order.py" />
         <option value="$PROJECT_DIR$/catalogoapp/models/lunch.py" />
         <option value="$PROJECT_DIR$/catalogoapp/models/creditCardMethod.py" />
+        <option value="$PROJECT_DIR$/catalogoapp/forms/lunchForm.py" />
       </list>
     </option>
   </component>
@@ -152,7 +152,7 @@
               <item name="Catalogo_de_Delicias" type="b2602c69:ProjectViewProjectNode" />
               <item name="Catalogo_de_Delicias" type="462c0819:PsiDirectoryNode" />
               <item name="catalogoapp" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -417,13 +417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalogoapp/forms/lunchForm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="19" column="19" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalogoapp/templates/baseform.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -617,18 +610,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalogoapp/templates/payLunch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalogoapp/models/creditCardMethod.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalogoapp/templates/payLunch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalogoapp/forms/lunchForm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
           <folding />
         </state>
       </provider>

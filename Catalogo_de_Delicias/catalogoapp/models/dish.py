@@ -5,7 +5,7 @@ from .dishTemperature import DishTemperature
 from .dishType import DishType
 
 class Dish(models.Model):
-    name = models.TextField(max_length=50)
+    name = models.CharField(max_length=50)
     ingredients = models.TextField()
     image = models.ImageField(upload_to='photos/', null=True)
     description = models.TextField()
