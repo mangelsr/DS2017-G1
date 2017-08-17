@@ -27,10 +27,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="clientViews.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="clientViews.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/catalogoapp/views/clientViews.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
+            <state relative-caret-position="240">
               <caret line="71" column="21" lean-forward="true" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
@@ -42,8 +42,18 @@
       <file leaf-file-name="payLunch.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/catalogoapp/templates/payLunch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
+            <state relative-caret-position="153">
               <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="creditCardMethod.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/catalogoapp/models/creditCardMethod.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="567">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -90,16 +100,17 @@
         <option value="$PROJECT_DIR$/catalogoapp/forms/restaurantForm.py" />
         <option value="$PROJECT_DIR$/catalogoapp/forms/lunchForm.py" />
         <option value="$PROJECT_DIR$/catalogoapp/templates/listDishesClient.html" />
-        <option value="$PROJECT_DIR$/catalogoapp/models/lunch.py" />
-        <option value="$PROJECT_DIR$/catalogoapp/models/paymentMethod.py" />
         <option value="$PROJECT_DIR$/catalogoapp/templates/orderLunch.html" />
-        <option value="$PROJECT_DIR$/catalogoapp/models/order.py" />
         <option value="$PROJECT_DIR$/catalogoapp/urls.py" />
         <option value="$PROJECT_DIR$/catalogoapp/templates/selectLunch.html" />
         <option value="$PROJECT_DIR$/catalogoapp/models/choices.py" />
         <option value="$PROJECT_DIR$/catalogoapp/models/style.py" />
         <option value="$PROJECT_DIR$/catalogoapp/templates/payLunch.html" />
         <option value="$PROJECT_DIR$/catalogoapp/views/clientViews.py" />
+        <option value="$PROJECT_DIR$/catalogoapp/models/paymentMethod.py" />
+        <option value="$PROJECT_DIR$/catalogoapp/models/order.py" />
+        <option value="$PROJECT_DIR$/catalogoapp/models/lunch.py" />
+        <option value="$PROJECT_DIR$/catalogoapp/models/creditCardMethod.py" />
       </list>
     </option>
   </component>
@@ -141,7 +152,7 @@
               <item name="Catalogo_de_Delicias" type="b2602c69:ProjectViewProjectNode" />
               <item name="Catalogo_de_Delicias" type="462c0819:PsiDirectoryNode" />
               <item name="catalogoapp" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -207,7 +218,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972972" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44761905" sideWeight="0.49695587" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6690476" sideWeight="0.49695587" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -255,7 +266,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/catalogoapp/views.py" />
     <entry file="file://$PROJECT_DIR$/catalogoapp/models/restaurant.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -465,18 +475,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalogoapp/models/lunch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#28#0" expanded="false" />
-            <marker date="1502921255154" expanded="true" signature="114:403" ph="..." />
-            <marker date="1502921255154" expanded="true" signature="332:403" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalogoapp/models/dish.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
@@ -498,16 +496,6 @@
         <state relative-caret-position="108">
           <caret line="7" column="77" lean-forward="false" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalogoapp/models/paymentMethod.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#10#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -559,16 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalogoapp/models/order.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#28#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalogoapp/models/choices.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -601,21 +579,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalogoapp/templates/payLunch.html">
+    <entry file="file://$PROJECT_DIR$/catalogoapp/models/paymentMethod.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+        <state relative-caret-position="216">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalogoapp/models/order.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalogoapp/views/clientViews.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
+        <state relative-caret-position="240">
           <caret line="71" column="21" lean-forward="true" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalogoapp/models/lunch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <marker date="1502931852159" expanded="true" signature="114:403" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalogoapp/templates/payLunch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalogoapp/models/creditCardMethod.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

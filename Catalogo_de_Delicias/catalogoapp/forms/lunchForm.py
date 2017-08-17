@@ -9,18 +9,16 @@ class LunchForm(forms.ModelForm):
     class Meta:
 
         model = Lunch
-
+        """
         dishes = Dish.objects.all()
         soupChoice = []
         mainChoice = []
         for dish in dishes:
-            if dish.dish_choice.name == 'Sopa':
-                soupChoice.append((dish,dish.name))
-            elif dish.dish_choice.name == 'Plato fuerte':
-                mainChoice.append((dish,dish.name))
-        print(soupChoice)
-        print(mainChoice)
-
+            if dish.dish_choice.name == 'Sopa' and dish.restaurant == model.restaurant:
+                soupChoice.append((dish.name, dish.name))
+            elif dish.dish_choice.name == 'Plato fuerte' and dish.restaurant == model.restaurant:
+                mainChoice.append((dish.name, dish.name))
+        """
         fields = [
             'soup',
             'main_curse',
@@ -32,7 +30,7 @@ class LunchForm(forms.ModelForm):
             'date': 'Fecha del almuerzo',
         }
         widgets = {
-            'soup': forms.Select(attrs={'class': 'form-control', 'id': 'soup'},choices=soupChoice),
-            'main_curse': forms.Select(attrs={'class': 'form-control', 'id': 'main_course'},choices=mainChoice),
-            'date': forms.DateInput(),
+            'soup': forms.Select(attrs={'class': 'form-control', 'id': 'soup'}),
+            'main_curse': forms.Select(attrs={'class': 'form-control', 'id': 'main_course'}),
+            'date': forms.DateInput()
         }
