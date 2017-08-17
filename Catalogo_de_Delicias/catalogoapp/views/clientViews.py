@@ -31,7 +31,6 @@ def listDishesClient(request):
                                                          'dishes': dishes})
 
 
-
 @login_required()
 @user_passes_test(user_check, login_url='noAccess')
 def searchDishes(request):
@@ -65,10 +64,18 @@ def orderLunch(request):
     return render(request, 'orderLunch.html', {'role': request.user.profile.role.name,
                                                'restaurants': restaurants})
 
+
 @login_required()
 @user_passes_test(user_check, login_url='noAccess')
 def selectLunch(request, id_restaurant):
     lunches = Lunch.objects.filter(restaurant=id_restaurant, date=datetime.date.today())
     executiveLunches = ExcecutiveLunch.objects.filter(restaurant=id_restaurant, date=datetime.date.today())
+    restaurant = Restaurant.objects.get(id=id_restaurant)
     return render(request, 'selectLunch.html', {'role': request.user.profile.role.name, 'lunches': lunches,
-                                                'executives': executiveLunches})
+                                                'executives': executiveLunches, 'restaurant': restaurant})
+
+
+@login_required()
+@user_passes_test(user_check, login_url='noAccess')
+def payLunch(request):
+    return render(request, 'payLunch.html', {})
