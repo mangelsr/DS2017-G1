@@ -1,7 +1,7 @@
 from django.db import models
 from .profile import Profile
 from .lunch import Lunch
-from .paymentMethod import PaymentMethod
+
 
 class Order(models.Model):
     customer = models.ForeignKey(Profile)

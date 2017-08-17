@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^home/viewDish/(?P<id_dish>\d+)/$', viewDish, name="viewDish"),
     url(r'^home/orderLunch$', orderLunch, name="orderLunch"),
     url(r'^home/selectLunch/(?P<id_restaurant>\d+)/$', selectLunch, name="selectLunch"),
+    url(r'^home/payLunch/(?P<id_lunch>\d+)/$', payLunch, name="payLunch"),
 
     #URLS DEL ROL AYUDANTE/ASISTENTE
     url(r'^home/newDish$', new_dish, name="newDish"),    
