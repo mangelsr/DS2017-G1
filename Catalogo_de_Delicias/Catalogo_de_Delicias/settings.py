@@ -108,7 +108,7 @@ LANGUAGE_CODE = 'es-mx'
 
 DATE_INPUT_FORMATS = ('%Y-%m-%d')
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Guayaquil'
 
 USE_I18N = True
 
