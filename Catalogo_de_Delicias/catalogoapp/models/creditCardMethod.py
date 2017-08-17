@@ -14,6 +14,7 @@ class CreditCardMethod(PaymentMethod):
 
     """boolean es un booleano que recibe de la función que verifica la
     información con el banco para ver si se puede realizar la transacción"""
+    #'boolean es un booleano' ~ Viviana Laurido, estudiante de ing en computacion, ESPOL, 2017
     #La funcion mencionada retorna True si la transacción es procesada existosamente, False si no
     def pagar(self, total, boolean):
         if boolean:
