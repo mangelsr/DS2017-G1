@@ -4,25 +4,29 @@
 
 <main class="container" role='main'>
 
-  <h2>Listado de restaurantes que disponen almuerzo en linea</h2>
+  <h2>Listado de menus del dia</h2>
+
+  <h3>Menus de almuerzos normales</h3>
 
   <div class="panel panel-default">
-    {% for restaurant in restaurants %}
+    {% for lunch in lunches %}
     <div class="panel-heading">
       <h2 class='panel-title'>
-        <a href="{% url 'selectLunch' restaurant.id %}">
-        Restaurant: {{ restaurant.name }}
+        <a href="{% url 'selectLunch' lunch.id %}">
+          Sopa: {{ lunch.soup }} -  Plato fuerte: {{ lunch.main_curse }}
         </a>
       </h2>
     </div>
     {% empty %}
     <div class="panel-heading">
       <h2 class='panel-title'>
-        No hay restaurantes que ofrezcan el servicio
+        No hay menus
       </h2>
     </div>
     {% endfor %}
   </div>
+
+  <h3>Menus de almuerzos ejecutivos</h3>
 
 </main>
 
