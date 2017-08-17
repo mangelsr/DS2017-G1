@@ -12,5 +12,10 @@ class CreditCardMethod(PaymentMethod):
         return ("Tajeta #%d"%self.cardNum, "\nCódigo seguridad: %s**"%self.codCvc[0],
                 "\nFecha expiración %s"%self.expDate))
 
-    def pagar(self, total):
-        return "Pago exitoso con tarjeta"
+    """boolean es un booleano que recibe de la función que verifica la
+    información con el banco para ver si se puede realizar la transacción"""
+    #La funcion mencionada retorna True si la transacción es procesada existosamente, False si no
+    def pagar(self, total, boolean):
+        if (boolean)
+            return "Pago realizado con tarjeta exitosamente."
+        return "Hay problemas con el pago, seleccione nuevamente una opción."

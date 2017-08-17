@@ -1,4 +1,15 @@
 
+
+colors = (
+    ("#ffe62b", "Amarillo"),
+    ("#ff982a", "Anaranjado"),
+    ("#ea1212", "Rojo"),
+    ("#ea128c", "Fucsia"),
+    ("#b712ea", "Morado"),
+    ("#1264ea", "Azul"),
+    ("#12ea24", "Verde"),
+  )
+
 fonts = (
     ("Arial", "Arial"),
     ("Helvetica", "Helvetica"),
