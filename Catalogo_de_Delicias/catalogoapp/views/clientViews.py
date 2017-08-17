@@ -50,11 +50,8 @@ def searchDishes(request):
 @login_required()
 @user_passes_test(user_assistant_check, login_url='noAccess')
 def viewDish(request,id_dish):
-    if (request.user.profile.role.name == "Cliente" or request.user.profile.role.name == "Ayudante"):
-        dish = Dish.objects.get(id = id_dish)
-        return render(request, 'detailDish.html', {'role': request.user.profile.role.name, "dish": dish})
-    else:
-        return redirect('noAccess')
+    dish = Dish.objects.get(id = id_dish)
+    return render(request, 'detailDish.html', {'role': request.user.profile.role.name, "dish": dish})
 
 
 @login_required()
@@ -70,7 +67,6 @@ def orderLunch(request):
 def selectLunch(request, id_restaurant):
     lunches = Lunch.objects.filter(restaurant=id_restaurant, date=datetime.date.today())
     executiveLunches = ExecutiveLunch.objects.filter(restaurant=id_restaurant, date=datetime.date.today())
-    lunchesFinal = []
     restaurant = Restaurant.objects.get(id=id_restaurant)
     return render(request, 'selectLunch.html', {'role': request.user.profile.role.name, 'lunches': lunches,
                                                 'executives': executiveLunches, 'restaurant': restaurant})
@@ -81,4 +77,4 @@ def selectLunch(request, id_restaurant):
 def payLunch(request, id_lunch):
     lunch = Lunch.objects.filter(id=id_lunch)
     print(lunch)
-    return render(request, 'payLunch.html', {})
+    return render(request, 'payLunch.html', {'role': request.user.profile.role.name, })
