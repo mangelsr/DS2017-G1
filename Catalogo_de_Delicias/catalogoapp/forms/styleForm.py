@@ -1,7 +1,7 @@
 from django import forms
 from catalogoapp.models.style import Style
 
-class ProfileForm(forms.ModelForm):
+class StyleForm(forms.ModelForm):
     class Meta:
         model = Style
         fields = [

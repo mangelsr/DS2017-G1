@@ -32,6 +32,6 @@ class RestaurantForm(forms.ModelForm):
                 (attrs={'class': 'form-control', 'id': 'phone_number', 'placeholder': 'Número telefónico del restaurante aquí'}),
             'offer_lunch': forms.CheckboxInput
                 (attrs={'class': 'form-control', 'id': 'offer_lunch', 'placeholder': 'Seleccione si el restaurante ofrece el servicio de almuerzo en línea'}),
-            'style': forms.TextInput
+            'style': forms.Select
                 (attrs={'class': 'form-control', 'id': 'style', 'placeholder': 'Estilo del restaurante aquí'}),
         }
