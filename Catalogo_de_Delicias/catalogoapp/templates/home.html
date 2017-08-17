@@ -14,6 +14,7 @@
         <li><a href="{% url 'listDishesAssistant' %}">Mostrar Platillos</a></li>
         <li><a href="{% url 'listCategoryDishes' %}">Mostrar Platillos por categoría</a></li>
         <li><a href="{% url 'postLunch' %}">Publicar Almuerzo</a></li>
+        <li><a href="{% url 'postExecutiveLunch' %}">Publicar Almuerzo Ejecutivo</a></li>
       {% elif role == "Administrador" %}
         <li><a href="{% url 'newRestaurant' %}">Agregar Restaurante</a></li>
         <li><a href="{% url 'listRestaurant' %}">Listar Restaurantes</a></li>
