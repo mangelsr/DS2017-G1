@@ -12,18 +12,18 @@ def admin_check(user):
 @user_passes_test(admin_check, login_url='noAccess')
 def newRestaurant(request):
     if request.method == 'POST':
-        form = RestaurantForm(request.POST)
-        style = StyleForm(request.POST)
-        if form.is_valid():
-            style.save()
-            r = form.save(commit=False)
-            r.style = style
-            r.save()
+        restaurantform = RestaurantForm(request.POST)
+        styleform = StyleForm(request.POST)
+        if restaurantform.is_valid():
+            newStyle = styleform.save()
+            newRestaurant = restaurantform.save(commit=False)
+            newRestaurant.style = newStyle
+            newRestaurant.save()
         return redirect('home')
     else:
-        form = RestaurantForm()
-        style = StyleForm()
-    return render(request, 'baseform2.html',{'role':request.user.profile.role.name,'form1': form,'form2': style})
+        restaurantform = RestaurantForm()
+        styleform = StyleForm()
+    return render(request, 'baseform2.html',{'role':request.user.profile.role.name,'form1': restaurantform,'form2': styleform})
 
 
 @login_required()

@@ -16,7 +16,7 @@
     {% for lunch in lunches %}
     <div class="panel-heading">
       <h2 class='panel-title'>
-        <a href="{% url 'payLunch' lunch.id %}" style="font-family:{{ restaurant.style.font }}; color:{{ restaurant.style.color }};">
+        <a href="{% url 'payLunch' lunch.id %}" style="font-family:{{ restaurant.style.font }};">
           Sopa: {{ lunch.soup }} -  Plato fuerte: {{ lunch.main_curse }}
         </a>
       </h2>
@@ -38,7 +38,7 @@
     {% for executive in executives %}
     <div class="panel-heading">
       <h2 class='panel-title'>
-        <a href="{% url 'payLunch' executive.id %}" style="font-family:{{ restaurant.style.font }}; color:{{ restaurant.style.color }};">
+        <a href="{% url 'payLunch' executive.id %}" style="font-family:{{ restaurant.style.font }};">
           Sopa: {{ executive.soup }} - Plato fuerte: {{ executive.main_curse }} - Postre: {{ executive.dessert }} ~ Jugo: {{ executive.juice }}<br>
         </a>
       </h2>
