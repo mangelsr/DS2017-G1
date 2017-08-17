@@ -76,8 +76,25 @@ def postLunch(request):
     if request.method == "POST":
         form = LunchForm()
         if form.is_valid():
-            form.save()
+            lunch = form.save(commit=False)
+            lunch.restaurant = request.user.profile.restaurant
+            lunch.save()
             return redirect('home')
     else:
         form = LunchForm()
+    return render(request, 'postLunch.html',{'role':request.user.profile.role.name,'lunch':form})
+
+
+@login_required()
+@user_passes_test(assistant_check, login_url='noAccess')
+def postExecutiveLunch(request):
+    if request.method == "POST":
+        form = ExecutiveLunchForm()
+        if form.is_valid():
+            lunch = form.save(commit=False)
+            lunch.restaurant = request.user.profile.restaurant
+            lunch.save()
+            return redirect('home')
+    else:
+        form = ExecutiveLunchForm()
     return render(request, 'postLunch.html',{'role':request.user.profile.role.name,'lunch':form})

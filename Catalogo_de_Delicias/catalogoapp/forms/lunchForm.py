@@ -1,4 +1,5 @@
 from django import forms
+from django.forms.extras.widgets import SelectDateWidget
 
 from catalogoapp.models.lunch import Lunch
 from catalogoapp.models.dish import Dish
@@ -6,33 +7,18 @@ from catalogoapp.models.dish import Dish
 
 class LunchForm(forms.ModelForm):
 
+    #dishes = Dish.objects.filter(dish_choice='Sopa')
+
+    date = forms.DateField(widget = forms.SelectDateWidget(), label='Fecha del almuerzo')
+    soup = forms.ModelChoiceField(queryset=Dish.objects.all(), label='Sopa del almuerzo')
+    main_curse = forms.ModelChoiceField(queryset=Dish.objects.all(), label='Plato fuerte del almuerzo')
+
     class Meta:
 
         model = Lunch
-
-        dishes = Dish.objects.all()
-        soupChoice = []
-        mainChoice = []
-        for dish in dishes:
-            if dish.dish_choice.name == 'Sopa':
-                soupChoice.append((dish,dish.name))
-            elif dish.dish_choice.name == 'Plato fuerte':
-                mainChoice.append((dish,dish.name))
-        print(soupChoice)
-        print(mainChoice)
 
         fields = [
             'soup',
             'main_curse',
             'date',
         ]
-        labels = {
-            'soup': 'Sopa del almuerzo',
-            'main_curse': 'Plato fuerte del almuerzo',
-            'date': 'Fecha del almuerzo',
-        }
-        widgets = {
-            'soup': forms.Select(attrs={'class': 'form-control', 'id': 'soup'},choices=soupChoice),
-            'main_curse': forms.Select(attrs={'class': 'form-control', 'id': 'main_course'},choices=mainChoice),
-            'date': forms.DateInput(),
-        }
