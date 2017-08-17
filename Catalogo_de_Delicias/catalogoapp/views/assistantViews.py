@@ -73,10 +73,7 @@ def edit_dish(request,id_dish):
 @user_passes_test(assistant_check, login_url='noAccess')
 def postLunch(request):
     if request.method == "POST":
-        dish = Dish.objects.all()
         form = LunchForm(request.POST)
-        form.soup.filter(restaurant=request.user.profile.restaurant)
-        form.main_curse.filter(restaurant=request.user.profile.restaurant)
         if form.is_valid():
             lunch = form.save(commit=False)
             lunch.restaurant = request.user.profile.restaurant
@@ -91,7 +88,7 @@ def postLunch(request):
 @user_passes_test(assistant_check, login_url='noAccess')
 def postExecutiveLunch(request):
     if request.method == "POST":
-        form = ExecutiveLunchForm()
+        form = ExecutiveLunchForm(request.POST)
         if form.is_valid():
             lunch = form.save(commit=False)
             lunch.restaurant = request.user.profile.restaurant

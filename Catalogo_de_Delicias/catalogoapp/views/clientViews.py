@@ -69,7 +69,8 @@ def orderLunch(request):
 @user_passes_test(user_check, login_url='noAccess')
 def selectLunch(request, id_restaurant):
     lunches = Lunch.objects.filter(restaurant=id_restaurant, date=datetime.date.today())
-    executiveLunches = ExcecutiveLunch.objects.filter(restaurant=id_restaurant, date=datetime.date.today())
+    executiveLunches = ExecutiveLunch.objects.filter(restaurant=id_restaurant, date=datetime.date.today())
+    print(datetime.date.today())
     lunchesFinal = []
     for lunch in lunches:
         if lunch not in executiveLunches:

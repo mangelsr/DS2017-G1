@@ -11,7 +11,6 @@ class RestaurantForm(forms.ModelForm):
             'owner',
             'phone_number',
             'offer_lunch',
-            'style',
         ]
         labels = {
             'name': 'Nombre del restaurante',
@@ -19,7 +18,6 @@ class RestaurantForm(forms.ModelForm):
             'owner': 'Dueño del restaurante',
             'phone_number': 'Numero telefonico del restaurante',
             'offer_lunch': 'Ofrece almuerzo en linea',
-            'style': 'Estilo del restaurante',
         }
         widgets = {
             'name': forms.TextInput
@@ -32,6 +30,4 @@ class RestaurantForm(forms.ModelForm):
                 (attrs={'class': 'form-control', 'id': 'phone_number', 'placeholder': 'Número telefónico del restaurante aquí'}),
             'offer_lunch': forms.CheckboxInput
                 (attrs={'class': 'form-control', 'id': 'offer_lunch', 'placeholder': 'Seleccione si el restaurante ofrece el servicio de almuerzo en línea'}),
-            'style': forms.Select
-                (attrs={'class': 'form-control', 'id': 'style', 'placeholder': 'Estilo del restaurante aquí'}),
         }

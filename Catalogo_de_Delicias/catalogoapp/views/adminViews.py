@@ -13,12 +13,17 @@ def admin_check(user):
 def newRestaurant(request):
     if request.method == 'POST':
         form = RestaurantForm(request.POST)
+        style = StyleForm(request.POST)
         if form.is_valid():
-            form.save()
+            style.save()
+            r = form.save(commit=False)
+            r.style = style
+            r.save()
         return redirect('home')
     else:
         form = RestaurantForm()
-    return render(request, 'baseform.html',{'role':request.user.profile.role.name,'form': form})
+        style = StyleForm()
+    return render(request, 'baseform2.html',{'role':request.user.profile.role.name,'form1': form,'form2': style})
 
 
 @login_required()
@@ -49,5 +54,5 @@ def newUser(request):
     else:
         newUser = UserForm()
         newProfile = ProfileForm()
-    return render(request,'newUser.html',{'role':request.user.profile.role.name,
-                                          'user':newUser,'profile':newProfile})
+    return render(request,'baseform2.html',{'role':request.user.profile.role.name,
+                                          'form1':newUser,'form2':newProfile})

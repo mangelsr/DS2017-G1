@@ -8,6 +8,12 @@ class Lunch(models.Model):
     date = models.DateField()
     restaurant = models.ForeignKey(Restaurant)
 
+    def __unicode__(self):
+        return self.soup.name+" con "+self.main_curse.name
+
+    def __str__(self):
+        return self.soup.name+" con "+self.main_curse.name
+
     class Meta:
         verbose_name = "Lunch"
         verbose_name_plural = "Lunches"
