@@ -70,6 +70,10 @@ def orderLunch(request):
 def selectLunch(request, id_restaurant):
     lunches = Lunch.objects.filter(restaurant=id_restaurant, date=datetime.date.today())
     executiveLunches = ExcecutiveLunch.objects.filter(restaurant=id_restaurant, date=datetime.date.today())
+    lunchesFinal = []
+    for lunch in lunches:
+        if lunch not in executiveLunches:
+            lunchesFinal.append(lunch)
     restaurant = Restaurant.objects.get(id=id_restaurant)
     return render(request, 'selectLunch.html', {'role': request.user.profile.role.name, 'lunches': lunches,
                                                 'executives': executiveLunches, 'restaurant': restaurant})
@@ -77,5 +81,7 @@ def selectLunch(request, id_restaurant):
 
 @login_required()
 @user_passes_test(user_check, login_url='noAccess')
-def payLunch(request):
+def payLunch(request, id_lunch):
+    lunch = Lunch.objects.filter(id=id_lunch)
+    print(lunch)
     return render(request, 'payLunch.html', {})
