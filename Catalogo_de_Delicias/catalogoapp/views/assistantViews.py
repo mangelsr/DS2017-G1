@@ -79,14 +79,10 @@ def postLunch(request):
         if form.is_valid():
             form.save(commit=False)
             form.restaurant = request.user.profile.restaurant
-            form.save(commit=True)
-            print('wuuuu')
+            form.save()
             return redirect('home')
-        else:
-            print('no es valido lptm')
     else:
         form = LunchForm(restaurante=request.user.profile.restaurant)
-    print(form.errors)
     return render(request, 'postLunch.html', {'role': request.user.profile.role.name, 'lunch': form})
 
 
@@ -94,12 +90,12 @@ def postLunch(request):
 @user_passes_test(assistant_check, login_url='noAccess')
 def postExecutiveLunch(request):
     if request.method == "POST":
-        form = ExecutiveLunchForm(request.POST)
+        form = ExecutiveLunchForm(data=request.POST,restaurante=request.user.profile.restaurant)
         if form.is_valid():
             lunch = form.save(commit=False)
             lunch.restaurant = request.user.profile.restaurant
             lunch.save()
             return redirect('home')
     else:
-        form = ExecutiveLunchForm()
+        form = ExecutiveLunchForm(restaurante=request.user.profile.restaurant)
     return render(request, 'postLunch.html', {'role': request.user.profile.role.name, 'lunch': form})
