@@ -1,11 +1,14 @@
 from django.db import models
+
+from datetime import date
+
 from .dish import Dish
 from .restaurant import Restaurant
 
 class Lunch(models.Model):
     soup = models.ForeignKey(Dish, related_name='soup')
     main_curse = models.ForeignKey(Dish, related_name='main_curse')
-    date = models.DateField()
+    date = models.DateField(default=date.today)
     restaurant = models.ForeignKey(Restaurant)
 
     def __unicode__(self):
