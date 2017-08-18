@@ -1,14 +1,31 @@
 {% extends 'home.html' %}
 
+{% block extra_css %}
+  h2 {
+    font-family: {{ restaurant.style.font }} ;
+    color: {{ restaurant.style.color }} ;
+  }
+
+  h3 {
+    font-family: {{ restaurant.style.font }} ;
+    color: {{ restaurant.style.color }} ;
+  }
+
+  a {
+    font-family: {{ restaurant.style.font }} ;
+  }
+{% endblock extra_css %}
+
+
 {% block content2 %}
 
 <main class="container" role='main'>
 
-  <h2 style="font-family:{{ restaurant.style.font }}; color:{{ restaurant.style.color }};">
+  <h2>
       Menu de {{ restaurant.name }}
   </h2>
 
-  <h3 style="font-family:{{ restaurant.style.font }}; color:{{ restaurant.style.color }};">
+  <h3>
     Almuerzos normales
   </h3>
 
@@ -16,7 +33,7 @@
     {% for lunch in lunches %}
     <div class="panel-heading">
       <h2 class='panel-title'>
-        <a href="{% url 'payLunch' lunch.id %}" style="font-family:{{ restaurant.style.font }};">
+        <a href="{% url 'payLunch' lunch.id %}">
           Sopa: {{ lunch.soup }} -  Plato fuerte: {{ lunch.main_curse }}
         </a>
       </h2>
@@ -30,7 +47,7 @@
     {% endfor %}
   </div>
 
-  <h3 style="font-family:{{ restaurant.style.font }}; color:{{ restaurant.style.color }};">
+  <h3>
     Menus de almuerzos ejecutivos
   </h3>
 
@@ -38,7 +55,7 @@
     {% for executive in executives %}
     <div class="panel-heading">
       <h2 class='panel-title'>
-        <a href="{% url 'payLunch' executive.id %}" style="font-family:{{ restaurant.style.font }};">
+        <a href="{% url 'payLunch' executive.id %}">
           Sopa: {{ executive.soup }} - Plato fuerte: {{ executive.main_curse }} - Postre: {{ executive.dessert }} ~ Jugo: {{ executive.juice }}<br>
         </a>
       </h2>

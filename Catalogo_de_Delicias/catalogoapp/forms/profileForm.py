@@ -8,12 +8,15 @@ class ProfileForm(forms.ModelForm):
         fields = [
             'role',
             'restaurant',
+            'is_student',
         ]
         labels = {
             'role': 'Rol del usuario',
             'restaurant': 'Restaurante en que labora',
+            'is_student': 'Es estudiante?'
         }
         widgets = {
-            'role': forms.Select(),
-            'restaurant': forms.Select(),
+            'role': forms.Select(attrs={'name': 'selectRole'}),
+            'restaurant': forms.Select(attrs={'name': 'selecRestaurant'}),
+            'is_student': forms.CheckboxInput(attrs={'name': 'checkIsStudent'}),
         }
