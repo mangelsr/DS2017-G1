@@ -1,6 +1,7 @@
 from django.db import models
 from .profile import Profile
 from .lunch import Lunch
+from .schedule import Schedule
 
 
 class Order(models.Model):
@@ -8,6 +9,7 @@ class Order(models.Model):
     lunch = models.ForeignKey(Lunch)
     include_dessert = models.BooleanField()
     include_juice = models.BooleanField()
+    schedule = models.ForeignKey(Schedule)
     cost = models.FloatField()
 
     class Meta:
