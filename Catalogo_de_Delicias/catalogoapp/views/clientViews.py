@@ -66,10 +66,14 @@ def orderLunch(request):
 @user_passes_test(user_check, login_url='noAccess')
 def selectLunch(request, id_restaurant):
     lunches = Lunch.objects.filter(restaurant=id_restaurant, date=datetime.date.today())
-    executiveLunches = ExecutiveLunch.objects.filter(restaurant=id_restaurant, date=datetime.date.today())
+    executiveLunches = ExecutiveLunch.objects.filter(restaurant=id_restaurant,
+                                                    date=datetime.date.today())
     restaurant = Restaurant.objects.get(id=id_restaurant)
-    return render(request, 'selectLunch.html', {'role': request.user.profile.role.name, 'lunches': lunches,
-                                                'executives': executiveLunches, 'restaurant': restaurant})
+    normalLunches = [l for l in lunches if not hasattr(l, 'executivelunch')]
+    return render(request, 'selectLunch.html', {'role': request.user.profile.role.name, 
+                                                'lunches': normalLunches,
+                                                'executives': executiveLunches,
+                                                'restaurant': restaurant})
 
 
 @login_required()
