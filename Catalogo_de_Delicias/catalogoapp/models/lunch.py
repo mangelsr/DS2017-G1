@@ -6,6 +6,8 @@ from .dish import Dish
 from .restaurant import Restaurant
 
 class Lunch(models.Model):
+    BASECOST = 2
+
     soup = models.ForeignKey(Dish, related_name='soup')
     main_curse = models.ForeignKey(Dish, related_name='main_curse')
     date = models.DateField(default=date.today)
