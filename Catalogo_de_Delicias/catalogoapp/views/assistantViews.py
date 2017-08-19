@@ -9,13 +9,17 @@ def assistant_check(user):
     return user.profile.role.name == "Ayudante"
 
 
+def assistant_restaurant_check(user):
+    return user.profile.role.name == "Ayudante" and user.profile.restaurant.offer_lunch
+
+
 @login_required()
 @user_passes_test(assistant_check, login_url='noAccess')
 def listDishesAssistant(request):
     profile = request.user.profile
     restaurant = profile.restaurant
     dishes = restaurant.getDishes()
-    return render(request, 'listDishesAssitant.html', {"role": profile.role.name,
+    return render(request, 'listDishesAssitant.html', {"profile": profile,
                                                        "restaurant": restaurant, "dishes": dishes})
 
 
@@ -29,13 +33,13 @@ def listCategoryDishes(request):
         restaurant = user.profile.getRestaurant()
         dishes = Dish.objects.filter(
             restaurant=restaurant, dish_choice=selection)
-        return render(request, 'listCategoryDishes.html', {"role": request.user.profile.role.name,
+        return render(request, 'listCategoryDishes.html', {"profile": request.user.profile,
                                                            "restaurant": restaurant, "dishes": dishes, "tipos": tipos})
     else:
         user = request.user
         restaurant = Profile.objects.get(user=user).restaurant
         tipos = DishType.objects.all()
-        return render(request, 'listCategoryDishes.html', {"role": request.user.profile.role.name,
+        return render(request, 'listCategoryDishes.html', {"profile": request.user.profile,
                                                            "restaurant": restaurant, "tipos": tipos})
 
 
@@ -51,7 +55,7 @@ def new_dish(request):
         return redirect('home')
     else:
         form = DishForm()
-    return render(request, 'baseform.html', {'role': request.user.profile.role.name, "form": form})
+    return render(request, 'baseform.html', {'profile': request.user.profile, "form": form})
 
 
 @login_required()
@@ -67,11 +71,11 @@ def edit_dish(request, id_dish):
             newDish.restaurant = request.user.profile.restaurant
             newDish.save()
         return redirect('home')
-    return render(request, 'baseform.html', {'role': request.user.profile.role.name, "form": form})
+    return render(request, 'baseform.html', {'profile': request.user.profile, "form": form})
 
 
 @login_required()
-@user_passes_test(assistant_check, login_url='noAccess')
+@user_passes_test(assistant_restaurant_check, login_url='noAccess')
 def postLunch(request):
     if request.method == "POST":
         form = LunchForm(data=request.POST,
@@ -83,11 +87,11 @@ def postLunch(request):
             return redirect('home')
     else:
         form = LunchForm(restaurante=request.user.profile.restaurant)
-    return render(request, 'postLunch.html', {'role': request.user.profile.role.name, 'lunch': form})
+    return render(request, 'postLunch.html', {'profile': request.user.profile, 'lunch': form})
 
 
 @login_required()
-@user_passes_test(assistant_check, login_url='noAccess')
+@user_passes_test(assistant_restaurant_check, login_url='noAccess')
 def postExecutiveLunch(request):
     if request.method == "POST":
         form = ExecutiveLunchForm(data=request.POST,restaurante=request.user.profile.restaurant)
@@ -98,4 +102,4 @@ def postExecutiveLunch(request):
             return redirect('home')
     else:
         form = ExecutiveLunchForm(restaurante=request.user.profile.restaurant)
-    return render(request, 'postLunch.html', {'role': request.user.profile.role.name, 'lunch': form})
+    return render(request, 'postLunch.html', {'profile': request.user.profile, 'lunch': form})

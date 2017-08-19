@@ -5,17 +5,19 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      {% if role == "Cliente" %}
+      {% if profile.role.name == "Cliente" %}
         <li><a href="{% url 'listDishesClient' %}">Listar Platillos</a></li>
         <li><a href="{% url 'searchDishes' %}">Buscar Platillos</a></li>
         <li><a href="{% url 'orderLunch' %}">Ordenar Almuerzo</a></li>
-      {% elif role == "Ayudante" %}
+      {% elif profile.role.name == "Ayudante" %}
         <li><a href="{% url 'newDish' %}">Agregar Platillo</a></li>
         <li><a href="{% url 'listDishesAssistant' %}">Mostrar Platillos</a></li>
         <li><a href="{% url 'listCategoryDishes' %}">Mostrar Platillos por categoría</a></li>
-        <li><a href="{% url 'postLunch' %}">Publicar Almuerzo</a></li>
-        <li><a href="{% url 'postExecutiveLunch' %}">Publicar Almuerzo Ejecutivo</a></li>
-      {% elif role == "Administrador" %}
+        {% if profile.restaurant.offer_lunch %}
+          <li><a href="{% url 'postLunch' %}">Publicar Almuerzo</a></li>
+          <li><a href="{% url 'postExecutiveLunch' %}">Publicar Almuerzo Ejecutivo</a></li>
+        {% endif %}
+      {% elif profile.role.name == "Administrador" %}
         <li><a href="{% url 'newRestaurant' %}">Agregar Restaurante</a></li>
         <li><a href="{% url 'listRestaurant' %}">Listar Restaurantes</a></li>
         <li><a href="{% url 'newUser' %}">Agregar Usuario</a></li>

@@ -23,7 +23,7 @@ def newRestaurant(request):
     else:
         restaurantform = RestaurantForm()
         styleform = StyleForm()
-    return render(request, 'baseform2.html',{'role':request.user.profile.role.name,'form1': restaurantform,'form2': styleform})
+    return render(request, 'baseform2.html',{'profile':request.user.profile,'form1': restaurantform,'form2': styleform})
 
 
 @login_required()
@@ -32,7 +32,7 @@ def listRestaurant(request):
     restaurantes = Restaurant.objects.all()
     asistentes = Profile.objects.filter(role=2)
     platillos = Dish.objects.all()
-    return render(request, 'listRestaurant.html',{'role':request.user.profile.role.name,
+    return render(request, 'listRestaurant.html',{'profile':request.user.profile,
                                                   'restaurantes':restaurantes,
                                                   'asistentes':asistentes,'platillos':platillos})
 
@@ -54,5 +54,5 @@ def newUser(request):
     else:
         newUser = UserForm()
         newProfile = ProfileForm()
-    return render(request,'baseform2.html',{'role':request.user.profile.role.name,
+    return render(request,'baseform2.html',{'profile':request.user.profile,
                                           'form1':newUser,'form2':newProfile})

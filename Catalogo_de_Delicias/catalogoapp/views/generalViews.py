@@ -31,5 +31,5 @@ def noAccess(request):
 
 @login_required(login_url='login')
 def home(request):
-    role = request.user.profile.role.name
-    return render(request, 'home.html', {'role': role})
+    profile = request.user.profile
+    return render(request, 'home.html', {'profile': profile})

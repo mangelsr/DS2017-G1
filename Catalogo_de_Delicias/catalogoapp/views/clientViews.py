@@ -19,14 +19,14 @@ def listDishesClient(request):
     if request.method == "GET":
         cuentaTipos = DishType.objects.annotate(nTypes=Count('dish'))
         tipos = DishType.objects.all()
-        return render(request, 'listDishesClient.html', {'role': request.user.profile.role.name,
+        return render(request, 'listDishesClient.html', {'profile': request.user.profile,
                                                          'tipos': tipos, 'cuentaTipos': cuentaTipos})
     elif (request.method == "POST"):
         selection = request.POST['selection']
         dishes = Dish.objects.filter(dish_choice=selection)
         cuentaTipos = DishType.objects.annotate(nTypes=Count('dish'))
         tipos = DishType.objects.all()
-        return render(request, 'listDishesClient.html', {'role': request.user.profile.role.name,
+        return render(request, 'listDishesClient.html', {'profile': request.user.profile,
                                                          'tipos': tipos, 'cuentaTipos': cuentaTipos,
                                                          'dishes': dishes})
 
@@ -42,23 +42,23 @@ def searchDishes(request):
         for dish in description_dishes:
             if dish not in dishes:
                 dishes.append(dish)
-        return render(request, 'searchDishes.html', {'role': request.user.profile.role.name, "dishes": dishes})
+        return render(request, 'searchDishes.html', {'profile': request.user.profile, "dishes": dishes})
     else:
-        return render(request, 'searchDishes.html', {'role': request.user.profile.role.name})
+        return render(request, 'searchDishes.html', {'profile': request.user.profile})
 
 
 @login_required()
 @user_passes_test(user_assistant_check, login_url='noAccess')
 def viewDish(request,id_dish):
     dish = Dish.objects.get(id = id_dish)
-    return render(request, 'detailDish.html', {'role': request.user.profile.role.name, "dish": dish})
+    return render(request, 'detailDish.html', {'profile': request.user.profile, "dish": dish})
 
 
 @login_required()
 @user_passes_test(user_check, login_url='noAccess')
 def orderLunch(request):
     restaurants = Restaurant.objects.filter(offer_lunch=True)
-    return render(request, 'orderLunch.html', {'role': request.user.profile.role.name,
+    return render(request, 'orderLunch.html', {'profile': request.user.profile,
                                                'restaurants': restaurants})
 
 
@@ -70,7 +70,7 @@ def selectLunch(request, id_restaurant):
                                                     date=datetime.date.today())
     restaurant = Restaurant.objects.get(id=id_restaurant)
     normalLunches = [l for l in lunches if not hasattr(l, 'executivelunch')]
-    return render(request, 'selectLunch.html', {'role': request.user.profile.role.name, 
+    return render(request, 'selectLunch.html', {'profile': request.user.profile, 
                                                 'lunches': normalLunches,
                                                 'executives': executiveLunches,
                                                 'restaurant': restaurant})
@@ -81,4 +81,4 @@ def selectLunch(request, id_restaurant):
 def payLunch(request, id_lunch):
     lunch = Lunch.objects.filter(id=id_lunch)
     print(lunch)
-    return render(request, 'payLunch.html', {'role': request.user.profile.role.name, })
+    return render(request, 'payLunch.html', {'profile': request.user.profile, })

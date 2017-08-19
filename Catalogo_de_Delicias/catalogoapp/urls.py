@@ -12,25 +12,25 @@ urlpatterns = [
     url(r'^noAccess/$', noAccess, name="noAccess"),
 
     #URLS DEL ROL CLIENTE
-    url(r'^home/listDishesClient$', listDishesClient, name="listDishesClient"),
-    url(r'^home/searchDishes$', searchDishes, name="searchDishes"),
-    url(r'^home/viewDish/(?P<id_dish>\d+)/$', viewDish, name="viewDish"),
-    url(r'^home/orderLunch$', orderLunch, name="orderLunch"),
-    url(r'^home/selectLunch/(?P<id_restaurant>\d+)/$', selectLunch, name="selectLunch"),
-    url(r'^home/payLunch/(?P<id_lunch>\d+)/$', payLunch, name="payLunch"),
+    url(r'^listDishesClient$', listDishesClient, name="listDishesClient"),
+    url(r'^searchDishes$', searchDishes, name="searchDishes"),
+    url(r'^viewDish/(?P<id_dish>\d+)/$', viewDish, name="viewDish"),
+    url(r'^orderLunch$', orderLunch, name="orderLunch"),
+    url(r'^selectLunch/(?P<id_restaurant>\d+)/$', selectLunch, name="selectLunch"),
+    url(r'^payLunch/(?P<id_lunch>\d+)/$', payLunch, name="payLunch"),
 
     #URLS DEL ROL AYUDANTE/ASISTENTE
-    url(r'^home/newDish$', new_dish, name="newDish"),    
-    url(r'^home/listDishesAssistant$', listDishesAssistant, name="listDishesAssistant"),
-    url(r'^home/listCategoryDishes$', listCategoryDishes, name="listCategoryDishes"),
-    url(r'^home/editDish/(?P<id_dish>\d+)/$', edit_dish, name="editDish"),
-    url(r'^home/postLunch$', postLunch, name="postLunch"),
-    url(r'^home/postExecutiveLunch$', postExecutiveLunch, name="postExecutiveLunch"),
+    url(r'^newDish$', new_dish, name="newDish"),    
+    url(r'^listDishesAssistant$', listDishesAssistant, name="listDishesAssistant"),
+    url(r'^listCategoryDishes$', listCategoryDishes, name="listCategoryDishes"),
+    url(r'^editDish/(?P<id_dish>\d+)/$', edit_dish, name="editDish"),
+    url(r'^postLunch$', postLunch, name="postLunch"),
+    url(r'^postExecutiveLunch$', postExecutiveLunch, name="postExecutiveLunch"),
 
     #URLS DEL ROL ADMINISTRADOR
-    url(r'^home/newRestaurant$', newRestaurant, name="newRestaurant"),
-    url(r'^home/listRestaurant$', listRestaurant, name="listRestaurant"),
-    url(r'^home/newUser$', newUser, name="newUser"),
+    url(r'^newRestaurant$', newRestaurant, name="newRestaurant"),
+    url(r'^listRestaurant$', listRestaurant, name="listRestaurant"),
+    url(r'^newUser$', newUser, name="newUser"),
 
 ]
 
