@@ -10,3 +10,4 @@ from .lunch import Lunch
 from .executiveLunch import ExecutiveLunch
 from .paymentMethod import PaymentMethod
 from .order import Order
+from .schedule import Schedule

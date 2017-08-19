@@ -3,15 +3,30 @@
 {% block extra_js %}
   $(document).ready(function(){
     $("#id_role").change(function(){
-      document.getElementById("id_restaurant").parentNode.style.display = "block";
-      document.getElementById("id_is_student").parentNode.style.display = "block";
+
+      var restaurantSelect = document.getElementById("id_restaurant");
+      var restaurantParent = restaurantSelect.parentNode;
+
+      var studentCheck = document.getElementById("id_is_student");
+      var studentParent = studentCheck.parentNode;
+
+      restaurantParent.style.display = "block";
+      studentParent.style.display = "block";
+
+      restaurantSelect.required = false;
+      studentCheck.checked = false;
+      restaurantSelect.selectedIndex = "0";
+
       if (this.value == "3"){
-        document.getElementById("id_restaurant").parentNode.style.display = "none";
-        document.getElementById("id_is_student").parentNode.style.display = "none";
-      }else if (this.value == "2"){
-        document.getElementById("id_is_student").parentNode.style.display = "none";
-      }else if (this.value == "1"){
-        document.getElementById("id_restaurant").parentNode.style.display = "none";
+        restaurantParent.style.display = "none";
+        studentParent.style.display = "none";
+      }
+      else if (this.value == "2"){
+        restaurantSelect.required = true;
+        studentParent.style.display = "none";
+      }
+      else if (this.value == "1"){
+        restaurantParent.style.display = "none";
       }
     });
   });
