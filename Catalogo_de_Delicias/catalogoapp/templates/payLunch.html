@@ -1,5 +1,21 @@
 {% extends 'home.html' %}
 
+{% block extra_css %}
+  h2 {
+    font-family: {{ restaurant.style.font }} ;
+    color: {{ restaurant.style.color }} ;
+  }
+
+  h3 {
+    font-family: {{ restaurant.style.font }} ;
+    color: {{ restaurant.style.color }} ;
+  }
+
+  a {
+    font-family: {{ restaurant.style.font }} ;
+  }
+{% endblock extra_css %}
+
 {% block content2 %}
 
 <main class="container" role='main'>
