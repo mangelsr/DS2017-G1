@@ -81,4 +81,5 @@ def selectLunch(request, id_restaurant):
 def payLunch(request, id_lunch):
     lunch = Lunch.objects.filter(id=id_lunch)
     print(lunch)
-    return render(request, 'payLunch.html', {'profile': request.user.profile, })
+    return render(request, 'payLunch.html', {'profile': request.user.profile,
+                                             'restaurant': lunch[0].restaurant,})
