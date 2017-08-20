@@ -9,14 +9,11 @@ class CreditCardMethod(PaymentMethod):
         self.expDate = expDate
 
     def __str__(self):
-        return "Tajeta #%d"%self.cardNum, "\nCódigo seguridad: %s**"%self.codCvc[0],
-                "\nFecha expiración %s"%self.expDate
+        return "Tajeta #%d"%self.cardNum, "\nCódigo seguridad: ***", "\nFecha expiración %s"%self.expDate
 
-    """boolean es un booleano que recibe de la función que verifica la
-    información con el banco para ver si se puede realizar la transacción"""
     #'boolean es un booleano' ~ Viviana Laurido, estudiante de ing en computacion, ESPOL, 2017
-    #La funcion mencionada retorna True si la transacción es procesada existosamente, False si no
+    #boolean es True si la tarjeta está vigente, False si está expirada
     def pagar(self, total, boolean):
         if boolean:
-            return "Pago realizado con tarjeta exitosamente."
+            return "Pago de $%.2f con tarjeta realizado exitosamente."%total
         return "Hay problemas con el pago, seleccione nuevamente una opción."
