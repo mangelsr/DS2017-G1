@@ -83,7 +83,6 @@ def selectLunch(request, id_restaurant):
 @user_passes_test(user_check, login_url='noAccess')
 def payLunch(request, id_lunch):
     lunch = Lunch.objects.filter(id=id_lunch)
-    user = request.user
     if request.method == "POST":
         form = OrderForm(request.POST)
         if form.is_valid():
