@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="lunch.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="lunch.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/catalogoapp/models/lunch.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+              <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -31,21 +31,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="choices.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/catalogoapp/models/choices.py">
+      <file leaf-file-name="profileForm.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/catalogoapp/forms/profileForm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+            <state relative-caret-position="202">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="executiveLunch.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/catalogoapp/models/executiveLunch.py">
+      <file leaf-file-name="choices.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/catalogoapp/models/choices.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+            <state relative-caret-position="189">
+              <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="styleForm.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/catalogoapp/forms/styleForm.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userForm.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/catalogoapp/forms/userForm.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="restaurantForm.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/catalogoapp/forms/restaurantForm.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -74,7 +106,6 @@
         <option value="$PROJECT_DIR$/catalogoapp/views.py" />
         <option value="$PROJECT_DIR$/catalogoapp/models/dish.py" />
         <option value="$PROJECT_DIR$/catalogoapp/models/restaurant.py" />
-        <option value="$PROJECT_DIR$/catalogoapp/forms/userForm.py" />
         <option value="$PROJECT_DIR$/catalogoapp/views/generalViews.py" />
         <option value="$PROJECT_DIR$/catalogoapp/views/__init__.py" />
         <option value="$PROJECT_DIR$/catalogoapp/templates/home.html" />
@@ -83,7 +114,6 @@
         <option value="$PROJECT_DIR$/catalogoapp/forms/dishForm.py" />
         <option value="$PROJECT_DIR$/catalogoapp/forms/executiveLunch.py" />
         <option value="$PROJECT_DIR$/catalogoapp/forms/__init__.py" />
-        <option value="$PROJECT_DIR$/catalogoapp/forms/restaurantForm.py" />
         <option value="$PROJECT_DIR$/catalogoapp/templates/listDishesClient.html" />
         <option value="$PROJECT_DIR$/catalogoapp/templates/orderLunch.html" />
         <option value="$PROJECT_DIR$/catalogoapp/urls.py" />
@@ -94,7 +124,6 @@
         <option value="$PROJECT_DIR$/catalogoapp/forms/lunchForm.py" />
         <option value="$PROJECT_DIR$/catalogoapp/views/adminViews.py" />
         <option value="$PROJECT_DIR$/Catalogo_de_Delicias/settings.py" />
-        <option value="$PROJECT_DIR$/catalogoapp/forms/profileForm.py" />
         <option value="$PROJECT_DIR$/catalogoapp/models/profile.py" />
         <option value="$PROJECT_DIR$/catalogoapp/templates/base.html" />
         <option value="$PROJECT_DIR$/catalogoapp/models/__init__.py" />
@@ -106,8 +135,11 @@
         <option value="$PROJECT_DIR$/catalogoapp/templates/selectLunch.html" />
         <option value="$PROJECT_DIR$/catalogoapp/templates/payLunch.html" />
         <option value="$PROJECT_DIR$/catalogoapp/views/clientViews.py" />
-        <option value="$PROJECT_DIR$/catalogoapp/models/lunch.py" />
         <option value="$PROJECT_DIR$/catalogoapp/models/executiveLunch.py" />
+        <option value="$PROJECT_DIR$/catalogoapp/models/lunch.py" />
+        <option value="$PROJECT_DIR$/catalogoapp/forms/userForm.py" />
+        <option value="$PROJECT_DIR$/catalogoapp/forms/restaurantForm.py" />
+        <option value="$PROJECT_DIR$/catalogoapp/forms/profileForm.py" />
       </list>
     </option>
   </component>
@@ -149,7 +181,7 @@
               <item name="Catalogo_de_Delicias" type="b2602c69:ProjectViewProjectNode" />
               <item name="Catalogo_de_Delicias" type="462c0819:PsiDirectoryNode" />
               <item name="catalogoapp" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -159,7 +191,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
@@ -213,10 +245,10 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971016" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4483871" sideWeight="0.5030441" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32580644" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972972" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38709676" sideWeight="0.49695587" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38709676" sideWeight="0.49695587" order="9" side_tool="false" content_ui="tabs" x="470" y="49" width="816" height="718" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -264,14 +296,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/catalogoapp/forms/userForm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalogoapp/forms/forms.py" />
     <entry file="file://$PROJECT_DIR$/catalogoapp/tests/modelTests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -458,13 +482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalogoapp/forms/restaurantForm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-230">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalogoapp/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -477,14 +494,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalogoapp/forms/profileForm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -583,10 +592,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalogoapp/models/executiveLunch.py">
+    <entry file="file://$PROJECT_DIR$/catalogoapp/models/lunch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        <state relative-caret-position="105">
+          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -599,21 +608,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/catalogoapp/models/executiveLunch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/catalogoapp/models/choices.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalogoapp/models/lunch.py">
+    <entry file="file://$PROJECT_DIR$/catalogoapp/forms/restaurantForm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        <state relative-caret-position="189">
+          <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/catalogoapp/forms/userForm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalogoapp/forms/styleForm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalogoapp/forms/profileForm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
