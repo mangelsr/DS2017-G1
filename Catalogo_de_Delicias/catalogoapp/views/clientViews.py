@@ -88,7 +88,9 @@ def payLunch(request, id_lunch):
         if form.is_valid():
             order = form.save(commit=False)
             order.customer = request.user.profile
-            order.lunch = lunch
+            order.lunch = lunch[0]
+            order.cost = Order.calculateCost(lunch[0], order.include_dessert, order.include_juice)
+            order.save()
         return redirect('home')
     else:
         form = OrderForm()

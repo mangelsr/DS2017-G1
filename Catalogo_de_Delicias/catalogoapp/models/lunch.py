@@ -5,8 +5,9 @@ from datetime import date
 from .dish import Dish
 from .restaurant import Restaurant
 
+BASECOST = 2
+
 class Lunch(models.Model):
-    BASECOST = 2
 
     soup = models.ForeignKey(Dish, related_name='soup')
     main_curse = models.ForeignKey(Dish, related_name='main_curse')
