@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.db.models import Count
 from django.contrib.auth.decorators import login_required, user_passes_test
+
 import datetime
+
 from catalogoapp.models import *
+from catalogoapp.forms import OrderForm
 
 
 def user_check(user):
@@ -80,5 +83,15 @@ def selectLunch(request, id_restaurant):
 @user_passes_test(user_check, login_url='noAccess')
 def payLunch(request, id_lunch):
     lunch = Lunch.objects.filter(id=id_lunch)
-    print(lunch)
-    return render(request, 'payLunch.html', {'profile': request.user.profile, })
+    if request.method == "POST":
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save(commit=False)
+            order.customer = request.user.profile
+            order.lunch = lunch[0]
+            order.cost = Order.calculateCost(lunch[0], order.include_dessert, order.include_juice)
+            order.save()
+        return redirect('home')
+    else:
+        form = OrderForm()
+    return render(request, 'payLunch.html', {'profile': request.user.profile, 'form': form})
