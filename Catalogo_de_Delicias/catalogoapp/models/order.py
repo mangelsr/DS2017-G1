@@ -12,6 +12,9 @@ class Order(models.Model):
     schedule = models.ForeignKey(Schedule)
     cost = models.FloatField()
 
+    #def calculateCost(lunch, include_dessert, include_juice):
+
+
     class Meta:
         verbose_name = "Order"
         verbose_name_plural = "Orders"
