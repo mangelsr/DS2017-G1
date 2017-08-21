@@ -21,6 +21,9 @@
     if ($("#tipoAlmuerzo").text() == 'Normal'){
       $("#id_include_juice").parent().hide();
       $("#id_include_dessert").parent().hide();
+    } else{
+      $("#id_include_juice").prop('checked', true);
+      $("#id_include_dessert").prop('checked', true);
     }
 
     $("#id_include_dessert").click(function(){
