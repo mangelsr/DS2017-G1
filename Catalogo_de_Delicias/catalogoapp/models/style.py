@@ -4,13 +4,12 @@ from .choices import *
 class Style(models.Model):
     color = models.CharField(choices=colors, max_length=20)
     font = models.CharField(choices=fonts, max_length=30)
-    size = models.IntegerField(choices=sizes)
 
     def __unicode__(self):
-        return self.font + " " + str(self.size) + " " + self.color
+        return self.font + " " + self.color
 
     def __str__(self):
-        return self.font + " " + str(self.size) + " " + self.color
+        return self.font + " "  + self.color
 
     class Meta:
         verbose_name = "Style"
