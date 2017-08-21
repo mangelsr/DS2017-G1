@@ -90,6 +90,10 @@ def payLunch(request, id_lunch):
             order.customer = request.user.profile
             order.lunch = lunch[0]
             order.cost = Order.calculateCost(lunch[0], order.include_dessert, order.include_juice)
+            try:
+                order.payment = order.instantiate_payment().pagar(order.cost, True)
+            except:
+                pass
             order.save()
         return redirect('home')
     else:

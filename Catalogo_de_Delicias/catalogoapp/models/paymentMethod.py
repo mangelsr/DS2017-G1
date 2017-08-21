@@ -5,4 +5,4 @@ class PaymentMethod:
     __metaclass__ = ABCMeta
 
     @abc.abstractmethod
-    def pagar(self, total): pass
+    def pagar(self, total, boolean): pass

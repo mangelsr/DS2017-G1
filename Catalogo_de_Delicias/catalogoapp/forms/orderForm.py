@@ -9,6 +9,9 @@ class OrderForm(forms.ModelForm):
     include_dessert = forms.BooleanField(required=False,label='Adicional de postre')
     schedule = forms.ModelChoiceField(queryset=Schedule.objects.all(), label='Horario de retiro')
 
+    creditcardmethod = forms.BooleanField(required=False, label='Pago con tarjeta de credito')
+    carnetmethod = forms.BooleanField(required=False, label='Pago con carnet inteligente')
+
     class Meta:
 
         model = Order
@@ -17,4 +20,6 @@ class OrderForm(forms.ModelForm):
             'include_juice',
             'include_dessert',
             'schedule',
+            'creditcardmethod',
+            'carnetmethod',
         ]

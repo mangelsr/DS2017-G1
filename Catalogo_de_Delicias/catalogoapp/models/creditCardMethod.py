@@ -2,11 +2,11 @@ from .paymentMethod import PaymentMethod
 
 class CreditCardMethod(PaymentMethod):
 
-    def __init__(self, cardNum, codCvc, expDate):
+    """def __init__(self, cardNum, codCvc, expDate):
         PaymentMethod.__init__(self)
         self.cardNum = cardNum
         self.codCvc = codCvc
-        self.expDate = expDate
+        self.expDate = expDate"""
 
     def __str__(self):
         return "Tajeta #%d"%self.cardNum, "\nCódigo seguridad: ***", "\nFecha expiración %s"%self.expDate
