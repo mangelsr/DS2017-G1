@@ -16,9 +16,8 @@ class Order(models.Model):
     include_juice = models.BooleanField()
     schedule = models.ForeignKey(Schedule)
     cost = models.FloatField()
-    creditcardmethod = models.BooleanField()
-    carnetmethod = models.BooleanField()
-    payment = models.CharField(max_length=50,null=True)
+    payment = models.CharField(max_length=30)
+    transaction = models.CharField(max_length=50, null=True, default="Pago realizado en efectivo")
 
     def __unicode__(self):
         return self.customer.user.username.capitalize()+": "+str(self.lunch)
@@ -29,9 +28,9 @@ class Order(models.Model):
 
 
     def instantiate_payment(self):
-        if self.customer.is_student and self.carnetmethod:
+        if self.customer.is_student and self.payment == 'Carnet inteligente':
             return CarnetMethod()
-        elif self.creditcardmethod:
+        elif self.payment == 'Tarjeta de credito':
             return CreditCardMethod()
 
 
