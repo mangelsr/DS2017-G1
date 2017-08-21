@@ -36,7 +36,7 @@ class Order(models.Model):
 
     @staticmethod
     def calculateCost(lunch, include_dessert, include_juice):
-        total = lunch.BASECOST
+        total = Lunch.BASECOST
         if hasattr(lunch, 'executivelunch'):
             total = ExecutiveLunch.BASECOST
             if include_dessert:

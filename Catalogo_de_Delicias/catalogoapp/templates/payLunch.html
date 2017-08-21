@@ -21,11 +21,11 @@
     if ($("#tipoAlmuerzo").text() == 'Normal'){
       $("#id_include_juice").parent().hide();
       $("#id_include_dessert").parent().hide();
-      $("#totalPagar").text("$ 2.5");
+      $("#totalPagar").text("$ {{ normalPrice }}");
     } else{
       $("#id_include_juice").prop('checked', false);
       $("#id_include_dessert").prop('checked', false);
-      $("#totalPagar").text("$ 3.0");
+      $("#totalPagar").text("$ {{ executivePrice }}");
     }
 
     $("#id_include_dessert").click(function(){
@@ -34,10 +34,10 @@
       total = parseFloat(total);
       if (this.checked){
         $("#postre").show();
-        total += 0.75;
+        total += {{ dessertPrice }};
       } else{
         $("#postre").hide();
-        total -= 0.75;
+        total -= {{ dessertPrice }};
       }
       $("#totalPagar").text("$ " + total);
     });
@@ -48,10 +48,10 @@
       total = parseFloat(total);
       if (this.checked){
         $("#jugo").show();
-        total += 0.5;
+        total += {{ juicePrice }};
       } else{
         $("#jugo").hide();
-        total -= 0.5;
+        total -= {{ juicePrice }};
       }
       $("#totalPagar").text("$ " + total);
     });
