@@ -21,17 +21,39 @@
     if ($("#tipoAlmuerzo").text() == 'Normal'){
       $("#id_include_juice").parent().hide();
       $("#id_include_dessert").parent().hide();
+      $("#totalPagar").text("$ 2.5");
     } else{
-      $("#id_include_juice").prop('checked', true);
-      $("#id_include_dessert").prop('checked', true);
+      $("#id_include_juice").prop('checked', false);
+      $("#id_include_dessert").prop('checked', false);
+      $("#totalPagar").text("$ 3.0");
     }
 
     $("#id_include_dessert").click(function(){
-      $("#postre").toggle();
+      var total = $("#totalPagar").text();
+      total = total.replace("$ ", "");
+      total = parseFloat(total);
+      if (this.checked){
+        $("#postre").show();
+        total += 0.75;
+      } else{
+        $("#postre").hide();
+        total -= 0.75;
+      }
+      $("#totalPagar").text("$ " + total);
     });
 
     $("#id_include_juice").click(function(){
-      $("#jugo").toggle();
+      var total = $("#totalPagar").text();
+      total = total.replace("$ ", "");
+      total = parseFloat(total);
+      if (this.checked){
+        $("#jugo").show();
+        total += 0.5;
+      } else{
+        $("#jugo").hide();
+        total -= 0.5;
+      }
+      $("#totalPagar").text("$ " + total);
     });
 
   });
@@ -50,6 +72,7 @@
     <h2 id='postre'>Postre: {{ lunch.dessert }}</h2>
     <h2 id='jugo'>Jugo: {{ lunch.juice }}</h2>
   {% endif %}
+  <h2 id='totalPagar'></h2>
  
   <form method="post">
     {% csrf_token %}
