@@ -16,21 +16,46 @@
   }
 {% endblock extra_css %}
 
+{% block extra_js %}
+  $(document).ready(function(){
+    if ($("#tipoAlmuerzo").text() == 'Normal'){
+      $("#id_include_juice").parent().hide();
+      $("#id_include_dessert").parent().hide();
+    }
+
+    $("#id_include_dessert").click(function(){
+      $("#postre").toggle();
+    });
+
+    $("#id_include_juice").click(function(){
+      $("#jugo").toggle();
+    });
+
+  });
+{% endblock extra_js %}
+
 {% block content2 %}
 
 <main class="container" role='main'>
 
-  <h2>Pago de almuerzo</h2>
+  <h1>Pago de almuerzo</h1>
+  <h1 id='tipoAlmuerzo'>{{ tipoAlmuerzo }}</h1>
 
+  <h2>Sopa: {{ lunch.soup }}</h2>
+  <h2>Segundo: {{ lunch.main_curse }}</h2>
+  {% if tipoAlmuerzo == 'Ejecutivo' %}
+    <h2 id='postre'>Postre: {{ lunch.dessert }}</h2>
+    <h2 id='jugo'>Jugo: {{ lunch.juice }}</h2>
+  {% endif %}
+ 
   <form method="post">
-    
-        {% csrf_token %}
-        {{ form.as_p }}
-    
-        <button type="submit" class="btn btn-success">Pagar</button>
-        <a href="{% url 'home' %}" style="margin-top: 0;" class="btn btn-primary">Cancelar</a>
-    
-      </form>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-success">Pagar</button>
+    <a href="{% url 'home' %}" style="margin-top: 0;" class="btn btn-primary">Cancelar</a>
+  </form>
+
 
 </main>
 
