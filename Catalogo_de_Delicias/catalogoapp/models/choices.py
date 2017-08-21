@@ -23,11 +23,3 @@ fonts = (
     ("Lucida Console", "Lucida Console"),
     ("Monaco", "Monaco"),
   )
-
-sizes = (
-      (12, 12),
-      (14, 14),
-      (16, 16),
-      (18, 18),
-      (20, 20),
-    )

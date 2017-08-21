@@ -2,7 +2,7 @@ from .paymentMethod import PaymentMethod
 
 class CreditCardMethod(PaymentMethod):
 
-    def __init__(self, cardNum, codCvc, expDate):
+    def __init__(self, cardNum=None, codCvc=None, expDate=None):
         PaymentMethod.__init__(self)
         self.cardNum = cardNum
         self.codCvc = codCvc
