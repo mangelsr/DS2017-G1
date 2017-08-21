@@ -31,7 +31,7 @@ class Order(models.Model):
     def instantiate_payment(self):
         if self.customer.is_student and self.carnetmethod:
             return CarnetMethod()
-        elif not self.customer.is_student() and self.creditcardmethod:
+        elif self.creditcardmethod:
             return CreditCardMethod()
 
 

@@ -2,11 +2,11 @@ from .paymentMethod import PaymentMethod
 
 class CarnetMethod(PaymentMethod):
 
-    """def __init__(self, numMatricula, user, password):
+    def __init__(self, numMatricula=None, user=None, password=None):
         PaymentMethod.__init__(self)
         self.numMatricula = numMatricula
         self.user = user
-        self.password = password"""
+        self.password = password
 
     def __str__(self):
         return ("Matrícula #%d"%self.numMatricula, "\nUsuario: %s"%self.user,
