@@ -6,10 +6,10 @@
     $("#id_is_student").parent().hide();
     $("#id_student_id").parent().hide();
 
-    $("#id_restaurant").prop('required', 'false');
-    $("#id_restaurant").prop('selectedIndex', '0');
-    $("#id_is_student").prop('checked', 'false');
-    $("#id_student_id").prop('required', 'false');
+    $("#id_restaurant").prop('required', false);
+    $("#id_restaurant").prop('selectedIndex', 0);
+    $('#id_is_student').prop('checked', false);
+    $("#id_student_id").prop('required', false);
     $("#id_student_id").val('');
 
     $("#id_role").change(function(){
@@ -18,32 +18,32 @@
       $("#id_is_student").parent().hide();
       $("#id_student_id").parent().hide();
 
-      $("#id_restaurant").prop('required', 'false');
-      $("#id_restaurant").prop('selectedIndex', '0');
-      $("#id_is_student").prop('checked', 'false');
-      $("#id_student_id").prop('required', 'false');
+      $("#id_restaurant").prop('required', false);
+      $("#id_restaurant").prop('selectedIndex', 0);
+      $('#id_is_student').prop('checked', false);
+      $("#id_student_id").prop('required', false);
       $("#id_student_id").val('');
 
       if (this.value == "3"){
       }
       else if (this.value == "2"){
         $("#id_restaurant").parent().show();
-        $("#id_restaurant").prop('required', 'true');
+        $("#id_restaurant").prop('required', true);
       }
       else if (this.value == "1"){
-        $("#id_is_student").prop('checked', 'false');
+        $("#id_is_student").prop('checked', false);
         $("#id_is_student").parent().show();
       }
     });
 
     $("#id_is_student").change(function(){
-      if (this.prop('checked') == 'true'){
+      if (this.checked){
         $("#id_student_id").parent().show();
-        $("#id_student_id").prop('required' ,'true');  
+        $("#id_student_id").prop('required' , true);  
       }
       else{
         $("#id_student_id").parent().hide();
-        $("#id_student_id").prop('required' ,'false');
+        $("#id_student_id").prop('required' , false);
       }
     });
   });
