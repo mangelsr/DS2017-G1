@@ -17,7 +17,7 @@ class Order(models.Model):
     schedule = models.ForeignKey(Schedule)
     cost = models.FloatField()
     payment = models.CharField(max_length=30)
-    transaction = models.CharField(max_length=50, null=True, default="Pago realizado en efectivo")
+    transaction = models.CharField(max_length=50, null=True)
 
     def __unicode__(self):
         return self.customer.user.username.capitalize()+": "+str(self.lunch)

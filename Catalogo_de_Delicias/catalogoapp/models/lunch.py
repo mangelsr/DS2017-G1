@@ -13,6 +13,7 @@ class Lunch(models.Model):
     main_curse = models.ForeignKey(Dish, related_name='main_curse')
     date = models.DateField(default=date.today)
     restaurant = models.ForeignKey(Restaurant)
+    stock = models.IntegerField(default=0, null=True)
 
     def __unicode__(self):
         return self.soup.name+" con "+self.main_curse.name

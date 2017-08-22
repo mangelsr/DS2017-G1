@@ -10,6 +10,9 @@ pip install -r ./requirements.txt
 Una vez hecho esto, ejecute:
 python manage.py runserver
 
+Para realizar las pruebas unitarias, debe ejecutar lo siguiente:
+python manage.py test --pattern= "*Test.py"
+
 En el login puede usar los siguientes usuarios para probar las funcionalidades
 
 -Cliente:

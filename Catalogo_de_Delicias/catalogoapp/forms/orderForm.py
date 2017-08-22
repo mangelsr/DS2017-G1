@@ -11,7 +11,6 @@ class OrderForm(forms.ModelForm):
     PAYMENT_METHODS = (
         ("Tarjeta de credito", "Tarjeta de credito"),
         ("Carnet inteligente", "Carnet inteligente"),
-        ("Efectivo", "Efectivo")
     )
     payment = forms.ChoiceField(widget=forms.RadioSelect,choices=PAYMENT_METHODS, label='Metodo de pago')
 
