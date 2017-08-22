@@ -97,10 +97,11 @@ def payLunch(request, id_lunch):
             order.cost = Order.calculateCost(lunch, order.include_dessert, order.include_juice)
             try:
                 order.transaction = order.instantiate_payment().pagar(order.cost, True)
+                order.save()
+                return render(request, 'orderNumber.html', {'ok': True , 'order': order})
             except:
-                pass
-            order.save()
-        return redirect('home')
+                #lanzar excepciones para capturarlas y mostrarle al cliente
+                return render(request, 'orderNumber.html', {'ok': False , 'error': mensajeExcept})
     else:
         form = OrderForm()
     return render(request, 'payLunch.html', {'profile': request.user.profile, 
