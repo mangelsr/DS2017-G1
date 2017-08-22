@@ -28,6 +28,7 @@ class LunchForm(forms.ModelForm):
         queryset=Dish.objects.all(), label='Sopa del almuerzo')
     main_curse = forms.ModelChoiceField(
         queryset=Dish.objects.all(), label='Plato fuerte del almuerzo')
+    stock = forms.IntegerField(min_value=1, label='Cantidad de almuerzos')
     restaurant = forms.ModelChoiceField(
         queryset=Restaurant.objects.all(), widget=forms.HiddenInput())
 
@@ -39,5 +40,6 @@ class LunchForm(forms.ModelForm):
             'soup',
             'main_curse',
             'date',
+            'stock',
             'restaurant'
         ]
