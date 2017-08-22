@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="wrapper">
+
+  <form class="form-signin">
+    {% if ok %}
+    <h2 class="form-signin-heading" style="text-align: center;">
+        Su numero de orden es {{ order.id }}
+    </h2>
+    {% else %}
+    <h2 style="color: red;text-align: center;">
+        No se pudo realizar la transaccion con exito
+    </h2>
+    <p>{{ error }}</p>
+    {% endif %}
+    <a href="{% url 'home' %}" class="btn btn-lg btn-primary btn-block">Ok</a>
+  </form>
+</div>
+
+{% endblock content %}
