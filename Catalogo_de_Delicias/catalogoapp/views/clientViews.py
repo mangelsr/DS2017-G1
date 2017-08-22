@@ -112,8 +112,9 @@ def payLunch(request, id_lunch):
     return render(request, 'payLunch.html', {'profile': request.user.profile, 
                                                 'form': form, 'lunch': lunch, 
                                                 'tipoAlmuerzo': tipoAlmuerzo,
-                                                'stock': lunchstock})
+                                                'stock': lunchstock,
                                                 'normalPrice': Lunch.BASECOST,
                                                 'executivePrice': ExecutiveLunch.BASECOST,
                                                 'dessertPrice': ExecutiveLunch.DESSERTCOST, 
-                                                'juicePrice': ExecutiveLunch.JUICECOST,})
+                                                'juicePrice': ExecutiveLunch.JUICECOST,
+                                                })
