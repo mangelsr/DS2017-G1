@@ -83,26 +83,38 @@ def selectLunch(request, id_restaurant):
 @user_passes_test(user_check, login_url='noAccess')
 def payLunch(request, id_lunch):
     lunch = Lunch.objects.get(id=id_lunch)
+    lunchstock = lunch.stock
     if hasattr(lunch, 'executivelunch'):
         tipoAlmuerzo = "Ejecutivo"
         lunch = ExecutiveLunch.objects.get(id=id_lunch)
     else:
         tipoAlmuerzo = "Normal"
     if request.method == "POST":
-        form = OrderForm(request.POST)
-        if form.is_valid():
-            order = form.save(commit=False)
-            order.customer = request.user.profile
-            order.lunch = lunch
-            order.cost = Order.calculateCost(lunch, order.include_dessert, order.include_juice)
-            try:
-                order.transaction = order.instantiate_payment().pagar(order.cost, True)
-            except:
-                pass
-            order.save()
+        if lunch.stock > 0:
+            form = OrderForm(request.POST)
+            if form.is_valid():
+                lunch.stock -= 1
+                lunch.save()
+                order = form.save(commit=False)
+                order.customer = request.user.profile
+                order.lunch = lunch
+                order.cost = Order.calculateCost(lunch, order.include_dessert, order.include_juice)
+                try:
+                    order.transaction = order.instantiate_payment().pagar(order.cost, True)
+                    order.save()
+                    return render(request, 'orderNumber.html', {'ok': True , 'order': order})
+                except:
+                    #lanzar excepciones para capturarlas y mostrarle al cliente
+                    return render(request, 'orderNumber.html', {'ok': False , 'error': mensajeExcept})
         return redirect('home')
     else:
         form = OrderForm()
     return render(request, 'payLunch.html', {'profile': request.user.profile, 
                                                 'form': form, 'lunch': lunch, 
-                                                'tipoAlmuerzo': tipoAlmuerzo, })
+                                                'tipoAlmuerzo': tipoAlmuerzo,
+                                                'stock': lunchstock,
+                                                'normalPrice': Lunch.BASECOST,
+                                                'executivePrice': ExecutiveLunch.BASECOST,
+                                                'dessertPrice': ExecutiveLunch.DESSERTCOST, 
+                                                'juicePrice': ExecutiveLunch.JUICECOST,
+                                                })
