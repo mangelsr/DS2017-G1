@@ -99,9 +99,8 @@ def payLunch(request, id_lunch):
                 order.transaction = order.instantiate_payment().pagar(order.cost, True)
                 order.save()
                 return render(request, 'orderNumber.html', {'ok': True , 'order': order})
-            except:
-                #lanzar excepciones para capturarlas y mostrarle al cliente
-                return render(request, 'orderNumber.html', {'ok': False , 'error': mensajeExcept})
+            except ValueError as error:
+                return render(request, 'orderNumber.html', {'ok': False , 'error': error})
     else:
         form = OrderForm()
     return render(request, 'payLunch.html', {'profile': request.user.profile, 

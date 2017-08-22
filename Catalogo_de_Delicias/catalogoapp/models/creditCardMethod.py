@@ -16,4 +16,4 @@ class CreditCardMethod(PaymentMethod):
     def pagar(self, total, boolean):
         if boolean:
             return "Pago de $%.2f con tarjeta realizado exitosamente."%total
-        return "Hay problemas con el pago, seleccione nuevamente una opción."
+        raise ValueError("Hay problemas con el pago, seleccione nuevamente una opción.")

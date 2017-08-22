@@ -17,4 +17,4 @@ class CarnetMethod(PaymentMethod):
     def pagar(self, total, boolean):
         if boolean:
             return "Pago de $%.2f realizado exitosamente con su carnet estudiantil."%total
-        return "Hay problemas con el pago, seleccione nuevamente una opción."
+        raise ValueError("Hay problemas con el pago, seleccione nuevamente una opción.")
