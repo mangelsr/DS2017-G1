@@ -2,31 +2,48 @@
 
 {% block extra_js %}
   $(document).ready(function(){
+    $("#id_restaurant").parent().hide();
+    $("#id_is_student").parent().hide();
+    $("#id_student_id").parent().hide();
+
+    $("#id_restaurant").prop('required', 'false');
+    $("#id_restaurant").prop('selectedIndex', '0');
+    $("#id_is_student").prop('checked', 'false');
+    $("#id_student_id").prop('required', 'false');
+    $("#id_student_id").val('');
+
     $("#id_role").change(function(){
 
-      var restaurantSelect = document.getElementById("id_restaurant");
-      var restaurantParent = restaurantSelect.parentNode;
+      $("#id_restaurant").parent().hide();
+      $("#id_is_student").parent().hide();
+      $("#id_student_id").parent().hide();
 
-      var studentCheck = document.getElementById("id_is_student");
-      var studentParent = studentCheck.parentNode;
-
-      restaurantParent.style.display = "block";
-      studentParent.style.display = "block";
-
-      restaurantSelect.required = false;
-      studentCheck.checked = false;
-      restaurantSelect.selectedIndex = "0";
+      $("#id_restaurant").prop('required', 'false');
+      $("#id_restaurant").prop('selectedIndex', '0');
+      $("#id_is_student").prop('checked', 'false');
+      $("#id_student_id").prop('required', 'false');
+      $("#id_student_id").val('');
 
       if (this.value == "3"){
-        restaurantParent.style.display = "none";
-        studentParent.style.display = "none";
       }
       else if (this.value == "2"){
-        restaurantSelect.required = true;
-        studentParent.style.display = "none";
+        $("#id_restaurant").parent().show();
+        $("#id_restaurant").prop('required', 'true');
       }
       else if (this.value == "1"){
-        restaurantParent.style.display = "none";
+        $("#id_is_student").prop('checked', 'false');
+        $("#id_is_student").parent().show();
+      }
+    });
+
+    $("#id_is_student").change(function(){
+      if (this.prop('checked') == 'true'){
+        $("#id_student_id").parent().show();
+        $("#id_student_id").prop('required' ,'true');  
+      }
+      else{
+        $("#id_student_id").parent().hide();
+        $("#id_student_id").prop('required' ,'false');
       }
     });
   });

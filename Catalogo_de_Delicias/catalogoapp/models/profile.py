@@ -11,6 +11,7 @@ class Profile(models.Model):
     restaurant = models.ForeignKey(Restaurant, related_name='profile_set', null=True, blank=True, 
                                     related_query_name="profiles")
     is_student = models.BooleanField()
+    student_id = models.CharField(max_length=10, null=True, blank=True)
 
     def __unicode__(self):
         return self.user.username
