@@ -93,6 +93,8 @@ def payLunch(request, id_lunch):
         if lunch.stock > 0:
             form = OrderForm(request.POST)
             if form.is_valid():
+                lunch.stock -= 1
+                lunch.save()
                 order = form.save(commit=False)
                 order.customer = request.user.profile
                 order.lunch = lunch
